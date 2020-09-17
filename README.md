@@ -38,7 +38,23 @@ Criar um sistema para o monitoramento de alguma coisa com relação ao meio ambi
 
 ## APIs
 
-Todo
+- /api
+  - /v1
+    - /users
+      - GET /users/:id (show)
+      - POST /users/:id (create)
+      - PUT /users/:id (update)
+    - /collectors
+      - GET /collectors (index)
+      - GET /collectors/:id (show)
+      - POST /collectors/
+      - PUT /collectors/
+      - /materials
+        - GET
+
+## Telas
+
+-
 
 ## Tecnologias a serem usadas
 
