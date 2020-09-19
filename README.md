@@ -9,6 +9,8 @@ APS, ou, Atividade Prática Supervisionada, é um exercício em grupo feito seme
 
 No caso do curso que eu presto, Ciência da computação, além do trabalho escrito, tem de ser entregue uma aplicação, cujo os requisitos são ditados pelo coordenador do curso.
 
+Este trabalho também tem uma parte [escrita](https://github.com/ogabriel/APS-UNIP-8sem-doc)
+
 ## Qual a proposta desse semestre?
 
 Criar um sistema para o monitoramento de alguma coisa com relação ao meio ambiente.
