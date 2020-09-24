@@ -20,22 +20,22 @@ router.put('/', async (req, res) => {
     res.json(recyclingStation);
 });
 
-router.post('/', async (req, res) => {
+router.post('/add_plastic', async (req, res) => {
 
 });
 
-router.post('/', async (req, res) => {
+router.post('/add_metal', async (req, res) => {
 
 });
 
-router.post('/', async (req, res) => {
+router.post('/add_glass', async (req, res) => {
 
 });
 
-router.post('/', async (req, res) => {
+router.post('/add_paper', async (req, res) => {
 
 });
 
-router.post('/', async (req, res) => {
+router.post('/add_electronic', async (req, res) => {
 
 });
