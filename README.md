@@ -65,6 +65,7 @@ Criar um sistema para mapear pontos de coleta de materiais recicláveis e monito
 - OpenStreetMap
 - express
 - sequelize
+- bcrypt
 - postgreSQL (with Postgis)
 
 ## APSs anteriores:
