@@ -34,6 +34,7 @@ Criar um sistema para mapear pontos de coleta de materiais recicláveis e monito
 8. Para dar start no server (localmente) use `npm run dev`
 
 ## TODO
+
 - escolher o tema
 - planejar
 - fazer as apis

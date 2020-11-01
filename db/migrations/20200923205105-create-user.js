@@ -21,7 +21,7 @@ module.exports = {
       encrypted_password: {
         allowNull: false,
         type: Sequelize.STRING,
-      }
+      },
     });
   },
 
