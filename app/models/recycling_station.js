@@ -1,8 +1,5 @@
 'use strict';
 
-const { DataTypes } = require('sequelize/types');
-const { sequelize } = require('.');
-
 module.exports = (sequelize, DataTypes) => {
   const RecyclingStation = sequelize.define('RecyclingStation', {
     name: {
