@@ -21,11 +21,11 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
-      ],
+      ]
     );
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('User', [{email: 'john@doe.com'}], {});
+    return queryInterface.bulkDelete('User', [{ email: 'john@doe.com' }], {});
   },
 };
