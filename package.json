@@ -8,6 +8,7 @@
   "main": "server.js",
   "scripts": {
     "db:create": "sequelize db:create",
+    "db:drop": "sequelize db:drop",
     "db:migrate": "sequelize db:migrate",
     "db:seed": "sequelize db:seed:all",
     "db:unseed": "sequelize db:seed:undo:all",
@@ -31,6 +32,7 @@
   },
   "homepage": "https://github.com/ogabriel/APS-UNIP-8sem#readme",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jest": "^25.3.0",
