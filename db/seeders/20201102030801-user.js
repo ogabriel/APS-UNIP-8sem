@@ -8,7 +8,7 @@ module.exports = {
         {
           name: 'John Doe',
           email: 'john@doe.com',
-          encrypted_password: 'password',
+          password: 'password',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -17,7 +17,7 @@ module.exports = {
         {
           name: 'Jane Doe',
           email: 'jane@doe.com',
-          encrypted_password: 'password',
+          password: 'password',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
