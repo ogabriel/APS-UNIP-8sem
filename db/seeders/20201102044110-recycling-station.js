@@ -10,6 +10,7 @@ module.exports = {
 
     return queryInterface.bulkInsert('RecyclingStation', [
       {
+        name: 'Recicloptero',
         localization: Sequelize.fn(
           'ST_GeomFromText',
           'POINT(-46.635906 -23.554604)'
@@ -24,6 +25,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        name: 'R3 reciclagem',
         localization: Sequelize.fn(
           'ST_GeomFromText',
           'POINT(-46.633706 -23.554604)'
@@ -41,18 +43,10 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    const stationsQuery = await queryInterface.sequelize.query(
-      'SELECT rs.id FROM "RecyclingStations" rs ORDER BY rs.id LIMIT 2'
+    return queryInterface.bulkDelete(
+      'RecyclingStation',
+      [{ name: ['Recicloptero', 'R3 reciclagem'] }],
+      {}
     );
-
-    const stations = stationsQuery[0];
-
-    if (stations.length < 1) {
-      return 0;
-    } else {
-      return await queryInterface.bulkDelete('RecyclingStations', [
-        { id: [stations[0].id, stations[1].id] },
-      ]);
-    }
   },
 };
