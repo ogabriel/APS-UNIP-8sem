@@ -1,31 +1,62 @@
-'use strict';
+const request = require('supertest');
+const app = require('../../../../app');
 
-const router = require('express').Router();
-const { RecyclingStation } = require('../models');
+const { createStation } = require('../../../factories/recycling_station');
 
-router.get('/', function (req, res) {
-  RecyclingStation.findAll().then((data) => {
-    req.json(data);
+describe('GET /recyclingstations', () => {
+  describe('when there are no stations', () => {
+    test('return an empty array', async () => {
+      const response = await request(app).get('/api/v1/recyclingstations');
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toEqual([]);
+    });
+  });
+
+  describe('when there are stations created', () => {
+    beforeEach(() => createStation({}));
+
+    test('return all the created stations', async () => {
+      const response = await request(app).get('/api/v1/recyclingstations');
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body).not.toEqual([]);
+      expect(response.body.length).toEqual(1);
+      expect(response.body[0].discovered).toEqual(false);
+    });
   });
 });
 
-router.post('/', async (req, res) => {
-  const recyclingStation = await RecyclingStation.create(req.body);
-  res.json(recyclingStation);
-});
+describe('GET /recyclingstations/localization', () => {
+  describe('when there are no stations', () => {
+    test('return an empty array', async () => {
+      const response = await request(app).get('/api/v1/recyclingstations/localization');
 
-/* Possibly incorrect */
-router.put('/', async (req, res) => {
-  const recyclingStation = await RecyclingStation.update(req.body);
-  res.json(recyclingStation);
-});
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toEqual([]);
+    });
+  });
 
-router.post('/', async (req, res) => {});
+  describe('when there are stations created', () => {
+    beforeEach(() => createStation({}));
 
-router.post('/', async (req, res) => {});
+    test('return all the created stations', async () => {
+      const response = await request(app).get('/api/v1/recyclingstations/localization');
 
-router.post('/', async (req, res) => {});
-
-router.post('/', async (req, res) => {});
-
-router.post('/', async (req, res) => {});
+      expect(response.statusCode).toBe(200);
+      expect(response.body).not.toEqual([]);
+      expect(response.body.length).toEqual(1);
+      expect(response.body[0].type).toEqual('Feature');
+      expect(response.body[0].properties).not.toEqual({});
+      expect(response.body[0].geometry.type).toEqual('Point');
+      expect(response.body[0].geometry.coordinates[0]).toBeGreaterThanOrEqual(
+        -90
+      );
+      expect(response.body[0].geometry.coordinates[0]).toBeLessThanOrEqual(90);
+      expect(response.body[0].geometry.coordinates[1]).toBeGreaterThanOrEqual(
+        -180
+      );
+      expect(response.body[0].geometry.coordinates[1]).toBeLessThanOrEqual(180);
+    });
+  });
+}); 
