@@ -29,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.FLOAT,
     },
   });
+
   RecyclingStation.associate = function (models) {
     RecyclingStation.belongsTo(models.User);
   };
