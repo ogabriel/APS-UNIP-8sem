@@ -30,6 +30,16 @@ module.exports = {
       electronic_kg: {
         type: Sequelize.FLOAT,
       },
+      UserId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        onUpdate: 'SET NULL',
+        onDelete: 'SET NULL',
+        references: {
+          key: 'id',
+          model: 'Users',
+        },
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
