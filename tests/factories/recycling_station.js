@@ -1,6 +1,6 @@
 const faker = require('faker');
 
-const { userParams } = require('./user');
+const { userParams } = require('../../app/models');
 const { RecyclingStation, User } = require('../../app/models');
 
 const defaultOptions = {
