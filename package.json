@@ -7,17 +7,17 @@
   },
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon",
     "db:create": "sequelize db:create",
     "db:migrate": "sequelize db:migrate",
+    "db:seed": "sequelize db:seed:all",
+    "db:unseed": "sequelize db:seed:undo:all",
+    "dev": "nodemon",
     "fix:format": "prettier . --write",
     "fix:lint": "eslint . --fix",
     "lint": "eslint .",
     "pretest": "NODE_ENV=test sequelize db:migrate",
-    "seed": "sequelize db:seed:all",
     "start": "node server",
-    "test": "jest --runInBand --passWithNoTests",
-    "unseed": "sequelize db:seed:undo:all"
+    "test": "jest --runInBand --passWithNoTests"
   },
   "repository": {
     "type": "git",
