@@ -30,7 +30,9 @@ describe('GET /recyclingstations', () => {
 describe('GET /recyclingstations/localization', () => {
   describe('when there are no stations', () => {
     test('return an empty array', async () => {
-      const response = await request(app).get('/api/v1/recyclingstations/localization');
+      const response = await request(app).get(
+        '/api/v1/recyclingstations/localization'
+      );
 
       expect(response.statusCode).toBe(200);
       expect(response.body).toEqual([]);
@@ -41,7 +43,9 @@ describe('GET /recyclingstations/localization', () => {
     beforeEach(() => createStation({}));
 
     test('return all the created stations', async () => {
-      const response = await request(app).get('/api/v1/recyclingstations/localization');
+      const response = await request(app).get(
+        '/api/v1/recyclingstations/localization'
+      );
 
       expect(response.statusCode).toBe(200);
       expect(response.body).not.toEqual([]);
@@ -59,4 +63,4 @@ describe('GET /recyclingstations/localization', () => {
       expect(response.body[0].geometry.coordinates[1]).toBeLessThanOrEqual(180);
     });
   });
-}); 
+});
