@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const usersQuery = await queryInterface.sequelize.query(
-      'SELECT id FROM "Users" u'
+      'SELECT u.id FROM "Users" u ORDER BY u.id LIMIT 2'
     );
 
     const users = usersQuery[0];
@@ -42,8 +42,7 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     const stationsQuery = await queryInterface.sequelize.query(
-      `SELECT s.id FROM "RecyclingStations" s
-      JOIN "Users" u ON u.id = s."UserId"`
+      'SELECT rs.id FROM "RecyclingStations" rs ORDER BY rs.id LIMIT 2'
     );
 
     const stations = stationsQuery[0];
