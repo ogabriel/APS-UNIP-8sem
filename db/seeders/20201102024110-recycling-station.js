@@ -1,10 +1,8 @@
 'use strict';
 
-const { QueryInterface } = require('sequelize/types');
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const usersQuery = await QueryInterface.sequelize.query(
+    const usersQuery = await queryInterface.sequelize.query(
       'SELECT id FROM "Users" u'
     );
 
@@ -50,11 +48,11 @@ module.exports = {
 
     const stations = stationsQuery[0];
 
-    if (plants.length < 1) {
+    if (stations.length < 1) {
       return 0;
     } else {
       return await queryInterface.bulkDelete('RecyclingStations', [
-        { id: [plants[0].id, plants[1].id] },
+        { id: [stations[0].id, stations[1].id] },
       ]);
     }
   },
