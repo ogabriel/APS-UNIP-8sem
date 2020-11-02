@@ -8,7 +8,7 @@ module.exports = {
 
     const users = usersQuery[0];
 
-    return queryInterface.bulkInsert('RecyclingStation', [
+    return queryInterface.bulkInsert('RecyclingStations', [
       {
         name: 'Recicloptero',
         localization: Sequelize.fn(
@@ -44,7 +44,7 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete(
-      'RecyclingStation',
+      'RecyclingStations',
       [{ name: ['Recicloptero', 'R3 reciclagem'] }],
       {}
     );
