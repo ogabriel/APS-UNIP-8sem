@@ -29,3 +29,5 @@ router.post('/add_glass', async (req, res) => {});
 router.post('/add_paper', async (req, res) => {});
 
 router.post('/add_electronic', async (req, res) => {});
+
+module.exports = router;
