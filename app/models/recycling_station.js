@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  RecyclingStation.associate = function (models) {
+  RecyclingStation.associate = (models) => {
     RecyclingStation.belongsTo(models.User);
   };
 
