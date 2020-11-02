@@ -29,9 +29,9 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  User.associate = function (models) {
-    User.hasMany(models.RecyclingStation);
-  };
+  // User.associate = function (models) {
+  //   User.hasMany(models.RecyclingStation);
+  // };
 
   return User;
 };
