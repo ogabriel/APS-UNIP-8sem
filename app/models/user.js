@@ -22,9 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       set(plainPassword) {
-        bcrypt.hash(plainPassword, 10, (err, hash) => {
-          this.setDataValue('password', hash);
-        });
+        this.setDataValue('password', bcrypt.hashSync(plainPassword, 10));
       },
     },
   });
