@@ -10,6 +10,7 @@ const defaultOptions = {
   localization: {
     type: 'Point',
     coordinates: [faker.address.latitude(), faker.address.longitude()],
+    discovered: false,
   },
   plastic_kg: faker.random.number(options),
   metal_kg: faker.random.number(options),
