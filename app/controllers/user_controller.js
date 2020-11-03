@@ -9,6 +9,7 @@ router.get('/:id', function (req, res) {
   });
 });
 
+/*
 router.post('/', async (req, res) => {
   const user = await User.create(req.body);
   res.json(user);
@@ -21,5 +22,6 @@ router.put('/login', async (req, res) => {
 router.put('/logout', async (req, res) => {
   // void returning function
 });
+*/
 
 module.exports = router;
