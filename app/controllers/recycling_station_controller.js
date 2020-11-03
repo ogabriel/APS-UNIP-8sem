@@ -9,6 +9,12 @@ router.get('/', function (req, res) {
   });
 });
 
+router.get('/localization', function (req, res) {
+  RecyclingStation.findAll().then((data) => {
+    res.json(data);
+  });
+});
+
 router.post('/', async (req, res) => {
   const recyclingStation = await RecyclingStation.create(req.body);
   res.json(recyclingStation);
