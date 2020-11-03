@@ -4,6 +4,6 @@ afterEach(async () => {
   const models = Object.values(db.sequelize.models);
 
   return await models.forEach((tableName) => {
-    tableName.destroy({ truncate: true, cascade: true });
+    tableName.destroy({ truncate: true, cascade: true, logging: null });
   });
 });
