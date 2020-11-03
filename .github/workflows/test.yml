@@ -1,0 +1,32 @@
+name: CI
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  container-job:
+    runs-on: ubuntu-latest
+    container: node:12.19.0-alpine
+    services:
+      postgres:
+        image: postgis/postgis:11-2.5-alpine
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: aps8-test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Test linting
+        run: npm run lint
+      - name: Test code
+        run: npm run test
+        env:
+          TEST_DATABASE_URL: postgres://postgres:postgres@postgres/aps8-test
