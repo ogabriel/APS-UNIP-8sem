@@ -4,10 +4,17 @@ const { userParams } = require('./user');
 const { RecyclingStation, User } = require('../../app/models');
 
 const defaultOptions = {
+  name: faker.name.findName(),
   localization: {
     type: 'Point',
     coordinates: [faker.address.latitude(), faker.address.longitude()],
   },
+  plastic_kg: faker.random.float(),
+  metal_kg: faker.random.float(),
+  glass_kg: faker.random.float(),
+  paper_kg: faker.random.float(),
+  electronic_kg: faker.random.float(),
+
   User: userParams(),
 };
 
