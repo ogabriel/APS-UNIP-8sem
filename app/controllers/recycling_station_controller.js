@@ -11,7 +11,13 @@ router.get('/', function (req, res) {
 
 router.get('/localization', function (req, res) {
   RecyclingStation.findAll().then((data) => {
-    res.json(data);
+    const localizations = data.map((station) => {
+      return {
+        type: 'Feature',
+        geometry: station.localization,
+      };
+    });
+    res.json(localizations);
   });
 });
 
