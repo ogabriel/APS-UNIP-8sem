@@ -5,7 +5,7 @@ const { RecyclingStation } = require('../models');
 
 router.get('/', function (req, res) {
   RecyclingStation.findAll().then((data) => {
-    req.json(data);
+    res.json(data);
   });
 });
 
