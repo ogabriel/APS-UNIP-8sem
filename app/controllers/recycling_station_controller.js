@@ -14,6 +14,9 @@ router.get('/localization', function (req, res) {
     const localizations = data.map((station) => {
       return {
         type: 'Feature',
+        properties: {
+          popupContent: null,
+        },
         geometry: station.localization,
       };
     });
