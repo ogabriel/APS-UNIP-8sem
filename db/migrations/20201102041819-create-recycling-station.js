@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.GEOMETRY('POINT'),
       },
       discovered: {
-        type: Sequelize.BOOELAN,
+        type: Sequelize.BOOLEAN,
       },
       plastic_kg: {
         type: Sequelize.FLOAT,
