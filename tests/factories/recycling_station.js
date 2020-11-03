@@ -3,7 +3,7 @@ const faker = require('faker');
 const { userParams } = require('./user');
 const { RecyclingStation, User } = require('../../app/models');
 
-var options = {min: 0, max: 1000000, precision:0.001};
+var options = { min: 0, max: 1000000, precision: 0.001 };
 
 const defaultOptions = {
   name: faker.name.findName(),
