@@ -15,7 +15,6 @@ module.exports = {
           'ST_GeomFromText',
           'POINT(-46.635906 -23.554604)'
         ),
-        discovered: true,
         plastic_kg: 200,
         metal_kg: 350,
         glass_kg: 700,
@@ -31,7 +30,6 @@ module.exports = {
           'ST_GeomFromText',
           'POINT(-46.633706 -23.554604)'
         ),
-        discovered: false,
         plastic_kg: 1080,
         metal_kg: 2160,
         glass_kg: 360,

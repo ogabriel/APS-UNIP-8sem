@@ -13,10 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.GEOMETRY('POINT'),
       allowNull: false,
     },
-    discovered: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
     plastic_kg: {
       type: DataTypes.FLOAT,
     },
