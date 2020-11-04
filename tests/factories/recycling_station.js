@@ -3,7 +3,7 @@ const faker = require('faker');
 const { userParams } = require('./user');
 const { RecyclingStation, User } = require('../../app/models');
 
-var options = { min: 0, max: 1000000, precision: 0.001 };
+const kgOptions = { min: 0, max: 1000000, precision: 0.001 };
 
 const defaultOptions = {
   name: faker.name.findName(),
@@ -12,11 +12,11 @@ const defaultOptions = {
     coordinates: [faker.address.latitude(), faker.address.longitude()],
     discovered: false,
   },
-  plastic_kg: faker.random.number(options),
-  metal_kg: faker.random.number(options),
-  glass_kg: faker.random.number(options),
-  paper_kg: faker.random.number(options),
-  electronic_kg: faker.random.number(options),
+  plastic_kg: faker.random.number(kgOptions),
+  metal_kg: faker.random.number(kgOptions),
+  glass_kg: faker.random.number(kgOptions),
+  paper_kg: faker.random.number(kgOptions),
+  electronic_kg: faker.random.number(kgOptions),
 
   User: userParams(),
 };
