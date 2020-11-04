@@ -6,6 +6,6 @@ const RecyclingStationController = require('../app/controllers/recycling_station
 
 // add use controllers
 Router.use('/users', UserController);
-Router.use('/recyclingstations', RecyclingStationController);
+Router.use('/recycling_stations', RecyclingStationController);
 
 module.exports = Router;
