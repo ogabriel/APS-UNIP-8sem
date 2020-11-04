@@ -1,0 +1,19 @@
+body {
+    background-color: #e2e1e2;
+}
+nav {
+	background-color: #2fc24f;
+}
+.navbar-light {
+	color: #ffffff;
+}
+img {
+    width: 25%;
+    height: auto;
+}
+.btn {
+    border-radius: 22px;
+}
+.h-80 {
+    padding-top: 150px;
+}
