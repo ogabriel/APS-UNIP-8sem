@@ -3,10 +3,10 @@ const app = require('../../../../app');
 
 const { createStation } = require('../../../factories/recycling_station');
 
-describe('GET /recyclingstations', () => {
+describe('GET /recycling_statations', () => {
   describe('when there are no stations', () => {
     test('return an empty array', async () => {
-      const response = await request(app).get('/api/v1/recyclingstations');
+      const response = await request(app).get('/api/v1/recycling_statations');
 
       expect(response.statusCode).toBe(200);
       expect(response.body).toEqual([]);
@@ -17,7 +17,7 @@ describe('GET /recyclingstations', () => {
     beforeEach(() => createStation({}));
 
     test('return all the created stations', async () => {
-      const response = await request(app).get('/api/v1/recyclingstations');
+      const response = await request(app).get('/api/v1/recycling_statations');
 
       expect(response.statusCode).toBe(200);
       expect(response.body).not.toEqual([]);
@@ -27,11 +27,11 @@ describe('GET /recyclingstations', () => {
   });
 });
 
-describe('GET /recyclingstations/localization', () => {
+describe('GET /recycling_statations/localization', () => {
   describe('when there are no stations', () => {
     test('return an empty array', async () => {
       const response = await request(app).get(
-        '/api/v1/recyclingstations/localization'
+        '/api/v1/recycling_statations/localization'
       );
 
       expect(response.statusCode).toBe(200);
@@ -44,7 +44,7 @@ describe('GET /recyclingstations/localization', () => {
 
     test('return all the created stations', async () => {
       const response = await request(app).get(
-        '/api/v1/recyclingstations/localization'
+        '/api/v1/recycling_statations/localization'
       );
 
       expect(response.statusCode).toBe(200);
