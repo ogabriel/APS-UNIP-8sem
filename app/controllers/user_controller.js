@@ -20,11 +20,11 @@ router.post('/', async (_req, _res) => {
 });
 */
 
-router.put('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   // put him on the session
 });
 
-router.put('/logout', async (req, res) => {
+router.delete('/logout', async (req, res) => {
   // remove him from the session
 });
 
