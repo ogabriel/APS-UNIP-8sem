@@ -3,13 +3,7 @@
 const router = require('express').Router();
 const { RecyclingStation } = require('../models');
 
-router.get('/', function (req, res) {
-  RecyclingStation.findAll().then((data) => {
-    res.json(data);
-  });
-});
-
-router.get('/localization', function (req, res) {
+router.get('/localizations', function (req, res) {
   RecyclingStation.findAll().then((data) => {
     const localizations = data.map((station) => {
       return {
@@ -20,29 +14,37 @@ router.get('/localization', function (req, res) {
         geometry: station.localization,
       };
     });
+
     res.json(localizations);
   });
 });
 
+router.get('/:id', function (req, res) {
+  RecyclingStation.findByPk(req.params.id).then((data) => {
+    if (data) {
+      res.json(data);
+    } else {
+      res.status(404).send();
+    }
+  });
+});
+
+/*
 router.post('/', async (req, res) => {
-  const recyclingStation = await RecyclingStation.create(req.body);
-  res.json(recyclingStation);
+  RecyclingStation.create(req.body).then((data) =>{
+    res.json(data);
+  });
 });
 
-/* Possibly incorrect */
-router.put('/', async (req, res) => {
-  const recyclingStation = await RecyclingStation.update(req.body);
-  res.json(recyclingStation);
-});
+router.post('/:id/add_plastic', async (req, res) => {});
 
-//router.post('/add_plastic', async (req, res) => {});
+router.post('/:id/add_metal', async (req, res) => {});
 
-//router.post('/add_metal', async (req, res) => {});
+router.post('/:id/add_glass', async (req, res) => {});
 
-//router.post('/add_glass', async (req, res) => {});
+router.post('/:id/add_paper', async (req, res) => {});
 
-//router.post('/add_paper', async (req, res) => {});
-
-//router.post('/add_electronic', async (req, res) => {});
+router.post('/:id/add_electronic', async (req, res) => {});
+*/
 
 module.exports = router;
