@@ -18,6 +18,7 @@ router.post('/', async (_req, _res) => {
   // create user
   // put him on the session
 });
+*/
 
 router.put('/login', async (req, res) => {
   // put him on the session
@@ -26,7 +27,5 @@ router.put('/login', async (req, res) => {
 router.put('/logout', async (req, res) => {
   // remove him from the session
 });
-});
-*/
 
 module.exports = router;
