@@ -35,16 +35,82 @@ router.post('/', async (req, res) => {
     res.json(data);
   });
 });
-
-router.post('/:id/add_plastic', async (req, res) => {});
-
-router.post('/:id/add_metal', async (req, res) => {});
-
-router.post('/:id/add_glass', async (req, res) => {});
-
-router.post('/:id/add_paper', async (req, res) => {});
-
-router.post('/:id/add_electronic', async (req, res) => {});
 */
+
+router.put('/:id/add_plastic', async (req, res) => {
+  const id = req.params.id;
+  const kg = req.body.kg;
+
+  if (id && kg) {
+    RecyclingStation.increment({ plastic_kg: kg }, { where: { id: id } }).then(
+      (data) => {
+        res.json(data);
+      }
+    );
+  } else {
+    res.status(400).send('Wrong type of data');
+  }
+});
+
+router.put('/:id/add_metal', async (req, res) => {
+  const id = req.params.id;
+  const kg = req.body.kg;
+
+  if (id && kg) {
+    RecyclingStation.increment({ metal_kg: kg }, { where: { id: id } }).then(
+      (data) => {
+        res.json(data);
+      }
+    );
+  } else {
+    res.status(400).send('Wrong type of data');
+  }
+});
+
+router.put('/:id/add_glass', async (req, res) => {
+  const id = req.params.id;
+  const kg = req.body.kg;
+
+  if (id && kg) {
+    RecyclingStation.increment({ glass_kg: kg }, { where: { id: id } }).then(
+      (data) => {
+        res.json(data);
+      }
+    );
+  } else {
+    res.status(400).send('Wrong type of data');
+  }
+});
+
+router.put('/:id/add_paper', async (req, res) => {
+  const id = req.params.id;
+  const kg = req.body.kg;
+
+  if (id && kg) {
+    RecyclingStation.increment({ paper_kg: kg }, { where: { id: id } }).then(
+      (data) => {
+        res.json(data);
+      }
+    );
+  } else {
+    res.status(400).send('Wrong type of data');
+  }
+});
+
+router.put('/:id/add_electronic', async (req, res) => {
+  const id = req.params.id;
+  const kg = req.body.kg;
+
+  if (id && kg) {
+    RecyclingStation.increment(
+      { electronic_kg: kg },
+      { where: { id: id } }
+    ).then((data) => {
+      res.json(data);
+    });
+  } else {
+    res.status(400).send('Wrong type of data');
+  }
+});
 
 module.exports = router;
