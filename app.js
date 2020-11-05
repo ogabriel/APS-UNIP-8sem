@@ -7,6 +7,7 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
+const passport = require('passport');
 const app = express();
 
 // Configura json
@@ -21,6 +22,10 @@ app.use(
     cookie: { secure: true },
   })
 );
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Config static files
 app.use(express.static(path.join(__dirname, 'public')));
