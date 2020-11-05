@@ -67,9 +67,129 @@ describe('GET /recycling_stations/localization', () => {
   });
 });
 
+describe('PUT /recycling_stations/:id/add_electronic', () => {
+  describe('when the station is not created', () => {
+    test('return an empty object', async () => {
+      const response = await request(app)
+        .put('/api/v1/recycling_stations/1/add_electronic')
+        .send({ g: 10 })
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(404);
+      expect(response.body).toEqual({});
+    });
+  });
+
+  describe('when the station is created', () => {
+    test('return the updated station', async () => {
+      const station = await createStation({ electronic: 10 });
+
+      const response = await request(app)
+        .put(`/api/v1/recycling_stations/${station.id}/add_electronic`)
+        .send({ g: 10 })
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body).not.toEqual({});
+      expect(response.body.id).toEqual(station.id);
+      expect(response.body.electronic).toEqual(20);
+    });
+  });
+});
+
+describe('PUT /recycling_stations/:id/add_glass', () => {
+  describe('when the station is not created', () => {
+    test('return an empty object', async () => {
+      const response = await request(app)
+        .put('/api/v1/recycling_stations/1/add_glass')
+        .send({ g: 10 })
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(404);
+      expect(response.body).toEqual({});
+    });
+  });
+
+  describe('when the station is created', () => {
+    test('return the updated station', async () => {
+      const station = await createStation({ glass: 10 });
+
+      const response = await request(app)
+        .put(`/api/v1/recycling_stations/${station.id}/add_glass`)
+        .send({ g: 10 })
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body).not.toEqual({});
+      expect(response.body.id).toEqual(station.id);
+      expect(response.body.glass).toEqual(20);
+    });
+  });
+});
+
+describe('PUT /recycling_stations/:id/add_metal', () => {
+  describe('when the station is not created', () => {
+    test('return an empty object', async () => {
+      const response = await request(app)
+        .put('/api/v1/recycling_stations/1/add_metal')
+        .send({ g: 10 })
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(404);
+      expect(response.body).toEqual({});
+    });
+  });
+
+  describe('when the station is created', () => {
+    test('return the updated station', async () => {
+      const station = await createStation({ metal: 10 });
+
+      const response = await request(app)
+        .put(`/api/v1/recycling_stations/${station.id}/add_metal`)
+        .send({ g: 10 })
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body).not.toEqual({});
+      expect(response.body.id).toEqual(station.id);
+      expect(response.body.metal).toEqual(20);
+    });
+  });
+});
+
+describe('PUT /recycling_stations/:id/add_paper', () => {
+  describe('when the station is not created', () => {
+    test('return an empty object', async () => {
+      const response = await request(app)
+        .put('/api/v1/recycling_stations/1/add_paper')
+        .send({ g: 10 })
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(404);
+      expect(response.body).toEqual({});
+    });
+  });
+
+  describe('when the station is created', () => {
+    test('return the updated station', async () => {
+      const station = await createStation({ paper: 10 });
+
+      const response = await request(app)
+        .put(`/api/v1/recycling_stations/${station.id}/add_paper`)
+        .send({ g: 10 })
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body).not.toEqual({});
+      expect(response.body.id).toEqual(station.id);
+      expect(response.body.paper).toEqual(20);
+    });
+  });
+});
+
 describe('PUT /recycling_stations/:id/add_plastic', () => {
-  describe('when there are no stations', () => {
-    test('return an empty array', async () => {
+  describe('when the station is not created', () => {
+    test('return an empty object', async () => {
       const response = await request(app)
         .put('/api/v1/recycling_stations/1/add_plastic')
         .send({ g: 10 })
@@ -80,8 +200,8 @@ describe('PUT /recycling_stations/:id/add_plastic', () => {
     });
   });
 
-  describe('when there are stations created', () => {
-    test('return all the created stations', async () => {
+  describe('when the station is created', () => {
+    test('return the updated station', async () => {
       const station = await createStation({ plastic: 10 });
 
       const response = await request(app)
