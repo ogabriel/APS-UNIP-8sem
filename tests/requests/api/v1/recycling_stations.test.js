@@ -66,3 +66,33 @@ describe('GET /recycling_stations/localization', () => {
     });
   });
 });
+
+describe('PUT /recycling_stations/:id/add_plastic', () => {
+  describe('when there are no stations', () => {
+    test('return an empty array', async () => {
+      const response = await request(app)
+        .put('/api/v1/recycling_stations/1/add_plastic')
+        .send({ g: 10 })
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(404);
+      expect(response.body).toEqual({});
+    });
+  });
+
+  describe('when there are stations created', () => {
+    test('return all the created stations', async () => {
+      const station = await createStation({ plastic: 10 });
+
+      const response = await request(app)
+        .put(`/api/v1/recycling_stations/${station.id}/add_plastic`)
+        .send({ g: 10 })
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body).not.toEqual({});
+      expect(response.body.id).toEqual(station.id);
+      expect(response.body.plastic).toEqual(20);
+    });
+  });
+});
