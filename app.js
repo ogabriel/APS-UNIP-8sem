@@ -21,7 +21,6 @@ app.use(
     cookie: { secure: true },
   })
 );
->>>>>>> add session config
 
 // Config static files
 app.use(express.static(path.join(__dirname, 'public')));
