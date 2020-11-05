@@ -52,7 +52,7 @@ describe('POST /users/login and DELETE /users/logout', () => {
 
       expect(response_login.statusCode).toBe(302);
       expect(response_login.redirect).toBe(true);
-      expect(response_login.headers.location).toBe('/recycling_stations/localizations');
+      expect(response_login.headers.location).toBe('/mapa');
 
       const response_logout = await request(app).delete('/api/v1/users/logout');
 

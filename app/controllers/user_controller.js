@@ -24,7 +24,7 @@ router.post('/', async (_req, _res) => {
 router.post(
   '/login',
   passport.authenticate('local', {
-    successRedirect: '/recycling_stations/localizations',
+    successRedirect: '/mapa',
     failureRedirect: '/login',
   })
 );
