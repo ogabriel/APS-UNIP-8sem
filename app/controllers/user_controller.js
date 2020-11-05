@@ -2,6 +2,7 @@
 
 const router = require('express').Router();
 const { User } = require('../models');
+const passport = require('../../config/passport');
 
 router.get('/:id', function (req, res) {
   User.findByPk(req.params.id).then((data) => {
@@ -20,12 +21,17 @@ router.post('/', async (_req, _res) => {
 });
 */
 
-router.post('/login', async (req, res) => {
-  // put him on the session
-});
+router.post(
+  '/login',
+  passport.authenticate('local', {
+    successRedirect: '/recycling_stations/localizations',
+    failureRedirect: '/login',
+  })
+);
 
-router.delete('/logout', async (req, res) => {
-  // remove him from the session
+router.delete('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
 });
 
 module.exports = router;
