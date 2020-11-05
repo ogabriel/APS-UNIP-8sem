@@ -31,5 +31,9 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.RecyclingStation);
   };
 
+  User.prototype.validPassword = function (password) {
+    return bcrypt.compareSync(password, this.password);
+  };
+
   return User;
 };
