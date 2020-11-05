@@ -37,12 +37,12 @@ router.post('/', async (req, res) => {
 });
 */
 
-router.put('/:id/add_plastic', async (req, res) => {
-  const id = req.params.id;
-  const kg = req.body.kg;
+router.put('/:id/add_plastic', (req, res) => {
+  const id = req.params.id,
+    g = req.body.g;
 
-  if (!isNaN(id) && !isNaN(kg)) {
-    RecyclingStation.increment({ plastic_kg: kg }, { where: { id: id } }).then(
+  if (!isNaN(id) && !isNaN(g)) {
+    RecyclingStation.increment({ plastic: g }, { where: { id: id } }).then(
       (data) => {
         res.json(data);
       }
@@ -52,12 +52,12 @@ router.put('/:id/add_plastic', async (req, res) => {
   }
 });
 
-router.put('/:id/add_metal', async (req, res) => {
-  const id = req.params.id;
-  const kg = req.body.kg;
+router.put('/:id/add_metal', (req, res) => {
+  const id = req.params.id,
+    g = req.body.g;
 
-  if (!isNaN(id) && !isNaN(kg)) {
-    RecyclingStation.increment({ metal_kg: kg }, { where: { id: id } }).then(
+  if (!isNaN(id) && !isNaN(g)) {
+    RecyclingStation.increment({ metal: g }, { where: { id: id } }).then(
       (data) => {
         res.json(data);
       }
@@ -67,12 +67,12 @@ router.put('/:id/add_metal', async (req, res) => {
   }
 });
 
-router.put('/:id/add_glass', async (req, res) => {
-  const id = req.params.id;
-  const kg = req.body.kg;
+router.put('/:id/add_glass', (req, res) => {
+  const id = req.params.id,
+    g = req.body.g;
 
-  if (!isNaN(id) && !isNaN(kg)) {
-    RecyclingStation.increment({ glass_kg: kg }, { where: { id: id } }).then(
+  if (!isNaN(id) && !isNaN(g)) {
+    RecyclingStation.increment({ glass: g }, { where: { id: id } }).then(
       (data) => {
         res.json(data);
       }
@@ -82,12 +82,12 @@ router.put('/:id/add_glass', async (req, res) => {
   }
 });
 
-router.put('/:id/add_paper', async (req, res) => {
-  const id = req.params.id;
-  const kg = req.body.kg;
+router.put('/:id/add_paper', (req, res) => {
+  const id = req.params.id,
+    g = req.body.g;
 
-  if (!isNaN(id) && !isNaN(kg)) {
-    RecyclingStation.increment({ paper_kg: kg }, { where: { id: id } }).then(
+  if (!isNaN(id) && !isNaN(g)) {
+    RecyclingStation.increment({ paper: g }, { where: { id: id } }).then(
       (data) => {
         res.json(data);
       }
@@ -97,17 +97,16 @@ router.put('/:id/add_paper', async (req, res) => {
   }
 });
 
-router.put('/:id/add_electronic', async (req, res) => {
-  const id = req.params.id;
-  const kg = req.body.kg;
+router.put('/:id/add_electronic', (req, res) => {
+  const id = req.params.id,
+    g = req.body.g;
 
-  if (!isNaN(id) && !isNaN(kg)) {
-    RecyclingStation.increment(
-      { electronic_kg: kg },
-      { where: { id: id } }
-    ).then((data) => {
-      res.json(data);
-    });
+  if (!isNaN(id) && !isNaN(g)) {
+    RecyclingStation.increment({ electronic: g }, { where: { id: id } }).then(
+      (data) => {
+        res.json(data);
+      }
+    );
   } else {
     res.status(400).send('Wrong type of data');
   }
