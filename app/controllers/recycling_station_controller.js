@@ -41,7 +41,7 @@ router.put('/:id/add_plastic', async (req, res) => {
   const id = req.params.id;
   const kg = req.body.kg;
 
-  if (id && kg) {
+  if (!isNaN(id) && !isNaN(kg)) {
     RecyclingStation.increment({ plastic_kg: kg }, { where: { id: id } }).then(
       (data) => {
         res.json(data);
@@ -56,7 +56,7 @@ router.put('/:id/add_metal', async (req, res) => {
   const id = req.params.id;
   const kg = req.body.kg;
 
-  if (id && kg) {
+  if (!isNaN(id) && !isNaN(kg)) {
     RecyclingStation.increment({ metal_kg: kg }, { where: { id: id } }).then(
       (data) => {
         res.json(data);
@@ -71,7 +71,7 @@ router.put('/:id/add_glass', async (req, res) => {
   const id = req.params.id;
   const kg = req.body.kg;
 
-  if (id && kg) {
+  if (!isNaN(id) && !isNaN(kg)) {
     RecyclingStation.increment({ glass_kg: kg }, { where: { id: id } }).then(
       (data) => {
         res.json(data);
@@ -86,7 +86,7 @@ router.put('/:id/add_paper', async (req, res) => {
   const id = req.params.id;
   const kg = req.body.kg;
 
-  if (id && kg) {
+  if (!isNaN(id) && !isNaN(kg)) {
     RecyclingStation.increment({ paper_kg: kg }, { where: { id: id } }).then(
       (data) => {
         res.json(data);
@@ -101,7 +101,7 @@ router.put('/:id/add_electronic', async (req, res) => {
   const id = req.params.id;
   const kg = req.body.kg;
 
-  if (id && kg) {
+  if (!isNaN(id) && !isNaN(kg)) {
     RecyclingStation.increment(
       { electronic_kg: kg },
       { where: { id: id } }
