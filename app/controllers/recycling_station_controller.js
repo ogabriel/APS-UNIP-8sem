@@ -44,7 +44,13 @@ router.put('/:id/add_plastic', (req, res) => {
   if (!isNaN(id) && !isNaN(g)) {
     RecyclingStation.increment({ plastic: g }, { where: { id: id } }).then(
       (data) => {
-        res.json(data);
+        const station = data[0][0][0];
+
+        if (station) {
+          res.json(station);
+        } else {
+          res.status(404).send();
+        }
       }
     );
   } else {
@@ -59,7 +65,13 @@ router.put('/:id/add_metal', (req, res) => {
   if (!isNaN(id) && !isNaN(g)) {
     RecyclingStation.increment({ metal: g }, { where: { id: id } }).then(
       (data) => {
-        res.json(data);
+        const station = data[0][0][0];
+
+        if (station) {
+          res.json(station);
+        } else {
+          res.status(404).send();
+        }
       }
     );
   } else {
@@ -74,7 +86,13 @@ router.put('/:id/add_glass', (req, res) => {
   if (!isNaN(id) && !isNaN(g)) {
     RecyclingStation.increment({ glass: g }, { where: { id: id } }).then(
       (data) => {
-        res.json(data);
+        const station = data[0][0][0];
+
+        if (station) {
+          res.json(station);
+        } else {
+          res.status(404).send();
+        }
       }
     );
   } else {
@@ -89,7 +107,13 @@ router.put('/:id/add_paper', (req, res) => {
   if (!isNaN(id) && !isNaN(g)) {
     RecyclingStation.increment({ paper: g }, { where: { id: id } }).then(
       (data) => {
-        res.json(data);
+        const station = data[0][0][0];
+
+        if (station) {
+          res.json(station);
+        } else {
+          res.status(404).send();
+        }
       }
     );
   } else {
@@ -104,7 +128,13 @@ router.put('/:id/add_electronic', (req, res) => {
   if (!isNaN(id) && !isNaN(g)) {
     RecyclingStation.increment({ electronic: g }, { where: { id: id } }).then(
       (data) => {
-        res.json(data);
+        const station = data[0][0][0];
+
+        if (station) {
+          res.json(station);
+        } else {
+          res.status(404).send();
+        }
       }
     );
   } else {
