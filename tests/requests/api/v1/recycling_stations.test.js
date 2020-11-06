@@ -68,6 +68,120 @@ describe('GET /recycling_stations/localization', () => {
   });
 });
 
+describe('POST /recycling_stations', () => {
+  describe('when the recycling_station data is incorrect', () => {
+    test('return an empty object when name is missing', async () => {
+      const user = await createUser();
+      const recycling_station_data = {
+        localization: {
+          type: 'Point',
+          coordinates: ['42.7554', '58.4350'],
+        },
+        electronic: 1,
+        UserId: user.id,
+      };
+
+      const response = await request(app)
+        .post('/api/v1/recycling_stations')
+        .send(recycling_station_data)
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(400);
+      expect(response.body).toEqual({
+        errors: ['RecyclingStation.name cannot be null'],
+      });
+    });
+
+    test('return an empty object when localization is missing', async () => {
+      const user = await createUser();
+      const recycling_station_data = {
+        name: 'RecyclePlus',
+        electronic: 1,
+        UserId: user.id,
+      };
+
+      const response = await request(app)
+        .post('/api/v1/recycling_stations')
+        .send(recycling_station_data)
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(400);
+      expect(response.body).toEqual({
+        errors: ['RecyclingStation.localization cannot be null'],
+      });
+    });
+
+    test('return an empty object when material is missing', async () => {
+      const user = await createUser();
+      const recycling_station_data = {
+        name: 'RecyclePlus',
+        localization: {
+          type: 'Point',
+          coordinates: ['42.7554', '58.4350'],
+        },
+        UserId: user.id,
+      };
+
+      const response = await request(app)
+        .post('/api/v1/recycling_stations')
+        .send(recycling_station_data)
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(400);
+      expect(response.body).toEqual({
+        errors: ['Require at least of type os recycling material'],
+      });
+    });
+
+    test('return an empty object when user is missing', async () => {
+      const recycling_station_data = {
+        name: 'RecyclePlus',
+        localization: {
+          type: 'Point',
+          coordinates: ['42.7554', '58.4350'],
+        },
+        electronic: 1,
+      };
+
+      const response = await request(app)
+        .post('/api/v1/recycling_stations')
+        .send(recycling_station_data)
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(400);
+      expect(response.body).toEqual({
+        errors: ['RecyclingStation.UserId cannot be null'],
+      });
+    });
+  });
+
+  describe('when the recycling_station data is correct', () => {
+    test('return the created recycling_station', async () => {
+      const user = await createUser();
+      const recycling_station_data = {
+        name: 'RecyclePlus',
+        localization: {
+          type: 'Point',
+          coordinates: ['42.7554', '58.4350'],
+        },
+        electronic: 1,
+        UserId: user.id,
+      };
+
+      const response = await request(app)
+        .post('/api/v1/recycling_stations')
+        .send(recycling_station_data)
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body.id).not.toEqual(null);
+      expect(response.body.name).toEqual('RecyclePlus');
+      expect(response.body.electronic).toEqual(1);
+      expect(response.body.UserId).toEqual(user.id);
+    });
+  });
+});
+
 describe('PUT /recycling_stations/:id/add_electronic', () => {
   describe('when the station is not created', () => {
     test('return an empty object', async () => {
@@ -214,114 +328,6 @@ describe('PUT /recycling_stations/:id/add_plastic', () => {
       expect(response.body).not.toEqual({});
       expect(response.body.id).toEqual(station.id);
       expect(response.body.plastic).toEqual(20);
-    });
-  });
-});
-
-describe('POST /recycling_stations', () => {
-  describe('when the recycling_station data is incorrect', () => {
-    test('return an empty object when name is missing', async () => {
-      const recycling_station_data = {
-        localization: {
-          type: 'Point',
-          coordinates: ['42.7554', '58.4350'],
-        },
-        electronic: 1,
-      };
-
-      const response = await request(app)
-        .post('/api/v1/recycling_stations')
-        .send(recycling_station_data)
-        .set('Accept', 'application/json');
-
-      expect(response.statusCode).toBe(400);
-      expect(response.body).toEqual({
-        errors: ['RecyclingStation.name cannot be null'],
-      });
-    });
-
-    test('return an empty object when localization is missing', async () => {
-      const recycling_station_data = {
-        name: 'RecyclePlus',
-        electronic: 1,
-      };
-
-      const response = await request(app)
-        .post('/api/v1/recycling_stations')
-        .send(recycling_station_data)
-        .set('Accept', 'application/json');
-
-      expect(response.statusCode).toBe(400);
-      expect(response.body).toEqual({
-        errors: ['RecyclingStation.localization cannot be null'],
-      });
-    });
-
-    test('return an empty object when material is missing', async () => {
-      const recycling_station_data = {
-        name: 'RecyclePlus',
-        localization: {
-          type: 'Point',
-          coordinates: ['42.7554', '58.4350'],
-        },
-      };
-
-      const response = await request(app)
-        .post('/api/v1/recycling_stations')
-        .send(recycling_station_data)
-        .set('Accept', 'application/json');
-
-      expect(response.statusCode).toBe(400);
-      expect(response.body).toEqual({
-        errors: ['Require at least of type os recycling material'],
-      });
-    });
-
-    test('return an empty object when user is missing', async () => {
-      const recycling_station_data = {
-        name: 'RecyclePlus',
-        localization: {
-          type: 'Point',
-          coordinates: ['42.7554', '58.4350'],
-        },
-        electronic: 1,
-      };
-
-      const response = await request(app)
-        .post('/api/v1/recycling_stations')
-        .send(recycling_station_data)
-        .set('Accept', 'application/json');
-
-      expect(response.statusCode).toBe(400);
-      expect(response.body).toEqual({
-        errors: ['Require at least of type os recycling material'],
-      });
-    });
-  });
-
-  describe('when the recycling_station data is correct', () => {
-    test('return the created recycling_station', async () => {
-      const user = await createUser();
-      const recycling_station_data = {
-        name: 'RecyclePlus',
-        localization: {
-          type: 'Point',
-          coordinates: ['42.7554', '58.4350'],
-        },
-        electronic: 1,
-        // UserId: user.id,
-      };
-
-      const response = await request(app)
-        .post('/api/v1/recycling_stations')
-        .send(recycling_station_data)
-        .set('Accept', 'application/json');
-
-      expect(response.statusCode).toBe(200);
-      expect(response.body).toEqual({});
-      expect(response.body.id).not.toEqual(null);
-      expect(response.body.name).toEqual('RecyclePlus');
-      expect(response.body.electronic).toEqual(1);
     });
   });
 });
