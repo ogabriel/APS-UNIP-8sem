@@ -11,8 +11,8 @@ async function getStationInfo(id) {
     const userResponse = JSON.stringify(rawUserResponse).replace("name", "owner").split(",").filter(str => str.indexOf("email") != -1 || str.indexOf("owner") != -1).join(",");
 
     
-    filteredUserResponse = JSON.parse(`{${userResponse}}`);
-    filteredStationResponse = JSON.parse(`{${stationResponse}}`);
+    const filteredUserResponse = JSON.parse(`{${userResponse}}`);
+    const filteredStationResponse = JSON.parse(`{${stationResponse}}`);
 
     const response = {...filteredUserResponse, ...filteredStationResponse};
     console.log(response);
