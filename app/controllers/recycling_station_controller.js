@@ -29,13 +29,15 @@ router.get('/:id', function (req, res) {
   });
 });
 
-/*
-router.post('/', async (req, res) => {
-  RecyclingStation.create(req.body).then((data) =>{
-    res.json(data);
-  });
+router.post('/', (req, res) => {
+  RecyclingStation.create(req.body)
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((data) => {
+      res.status(400).send({ errors: data.errors.map((e) => e.message) });
+    });
 });
-*/
 
 router.put('/:id/add_electronic', (req, res) => {
   const id = req.params.id,
