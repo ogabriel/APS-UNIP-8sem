@@ -49,7 +49,11 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   RecyclingStation.associate = (models) => {
-    RecyclingStation.belongsTo(models.User);
+    RecyclingStation.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false,
+      },
+    });
   };
 
   return RecyclingStation;
