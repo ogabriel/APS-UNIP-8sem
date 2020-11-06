@@ -14,12 +14,21 @@ router.get('/:id', function (req, res) {
   });
 });
 
-/*
-router.post('/', async (_req, _res) => {
-  // create user
-  // put him on the session
+router.post('/', (req, res) => {
+  const user_params = req.body;
+
+  if (user_params.password == user_params.confirmation_password) {
+    User.create(user_params)
+      .then((data) => {
+        res.json(data);
+      })
+      .catch((data) => {
+        res.status(400).send({ errors: data.errors.map((e) => e.message) });
+      });
+  } else {
+    res.status(400).send({ errors: ['Wrong password'] });
+  }
 });
-*/
 
 router.post(
   '/login',
