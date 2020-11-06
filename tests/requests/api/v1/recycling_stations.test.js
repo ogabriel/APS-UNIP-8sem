@@ -221,6 +221,39 @@ describe('POST /recycling_stations', () => {
   describe('when the recycling_station data is incorrect', () => {
     test('return an empty object when name is missing', async () => {
       const recycling_station_data = {
+        localization: {
+          type: 'Point',
+          coordinates: ['42.7554', '58.4350'],
+        },
+        electronic: 1,
+      };
+
+      const response = await request(app)
+        .post('/api/v1/recycling_stations')
+        .send(recycling_station_data)
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(400);
+      expect(response.body).toEqual({ errors: ["RecyclingStation.name cannot be null"] });
+    });
+
+    test('return an empty object when localization is missing', async () => {
+      const recycling_station_data = {
+        name: 'RecyclePlus',
+        electronic: 1,
+      };
+
+      const response = await request(app)
+        .post('/api/v1/recycling_stations')
+        .send(recycling_station_data)
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(400);
+      expect(response.body).toEqual({ errors: ["RecyclingStation.localization cannot be null"] });
+    });
+
+    test('return an empty object when material is missing', async () => {
+      const recycling_station_data = {
         name: 'RecyclePlus',
         localization: {
           type: 'Point',
@@ -234,65 +267,19 @@ describe('POST /recycling_stations', () => {
         .set('Accept', 'application/json');
 
       expect(response.statusCode).toBe(400);
-      expect(response.body).toEqual({ errors: ['User.name cannot be null'] });
-    });
-
-    test('return an empty object when email is missing', async () => {
-      const recycling_station_data = {
-        name: 'John',
-        password: 'password',
-        confirmation_password: 'password',
-      };
-
-      const response = await request(app)
-        .post('/api/v1/recycling_stations')
-        .send(recycling_station_data)
-        .set('Accept', 'application/json');
-
-      expect(response.statusCode).toBe(400);
-      expect(response.body).toEqual({ errors: ['User.email cannot be null'] });
-    });
-
-    test('return an empty object when password is missing', async () => {
-      const recycling_station_data = {
-        name: 'John',
-        email: 'john@doe.com',
-        confirmation_password: 'password',
-      };
-
-      const response = await request(app)
-        .post('/api/v1/recycling_stations')
-        .send(recycling_station_data)
-        .set('Accept', 'application/json');
-
-      expect(response.statusCode).toBe(400);
-      expect(response.body).toEqual({ errors: ['Wrong password'] });
-    });
-
-    test('return an empty object when confirmation_password is missing', async () => {
-      const recycling_station_data = {
-        name: 'John',
-        email: 'john@doe.com',
-        password: 'password',
-      };
-
-      const response = await request(app)
-        .post('/api/v1/recycling_stations')
-        .send(recycling_station_data)
-        .set('Accept', 'application/json');
-
-      expect(response.statusCode).toBe(400);
-      expect(response.body).toEqual({ errors: ['Wrong password'] });
+      expect(response.body).toEqual({ errors: ["Require at least of type os recycling material"] });
     });
   });
 
   describe('when the recycling_station data is correct', () => {
     test('return the created recycling_station', async () => {
       const recycling_station_data = {
-        name: 'John',
-        email: 'john@doe.com',
-        password: 'password',
-        confirmation_password: 'password',
+        name: 'RecyclePlus',
+        localization: {
+          type: 'Point',
+          coordinates: ['42.7554', '58.4350'],
+        },
+        electronic: 1,
       };
 
       const response = await request(app)
@@ -302,8 +289,8 @@ describe('POST /recycling_stations', () => {
 
       expect(response.statusCode).toBe(200);
       expect(response.body.id).not.toEqual(null);
-      expect(response.body.name).toEqual('John');
-      expect(response.body.email).toEqual('john@doe.com');
+      expect(response.body.name).toEqual('RecyclePlus');
+      expect(response.body.electronic).toEqual(1);
     });
   });
 });
