@@ -6,7 +6,7 @@ async function getStationInfo(id) {
     const rawStationResponse = await rstationRequest.json();
     const stationResponse = JSON.stringify(rawStationResponse).replace("name", "rsname").split(",").filter(str => str.indexOf("name") != -1 || str.indexOf("kg") != -1).join(",");
 
-    const userRequest = await fetch(`/api/v1/users/${id}`);
+    const userRequest = await fetch(`/api/v1/users/${rawStationResponse.UserId}`);
     const rawUserResponse = await userRequest.json();
     const userResponse = JSON.stringify(rawUserResponse).replace("name", "owner").split(",").filter(str => str.indexOf("email") != -1 || str.indexOf("owner") != -1).join(",");
 
