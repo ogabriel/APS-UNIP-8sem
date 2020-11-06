@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
             isNaN(this.paper) &&
             isNaN(this.plastic)
           ) {
-            throw new Error('Require at least of type os recycling material');
+            throw new Error('Require at least one type of recycling material');
           }
         },
       },
