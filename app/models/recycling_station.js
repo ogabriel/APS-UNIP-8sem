@@ -15,19 +15,19 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.GEOMETRY('POINT'),
         allowNull: false,
       },
-      plastic: {
+      plastic_kg: {
         type: DataTypes.INTEGER,
       },
-      metal: {
+      metal_kg: {
         type: DataTypes.INTEGER,
       },
-      glass: {
+      glass_kg: {
         type: DataTypes.INTEGER,
       },
-      paper: {
+      paper_kg: {
         type: DataTypes.INTEGER,
       },
-      electronic: {
+      electronic_kg: {
         type: DataTypes.INTEGER,
       },
     },
