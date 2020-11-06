@@ -129,7 +129,7 @@ describe('POST /recycling_stations', () => {
 
       expect(response.statusCode).toBe(400);
       expect(response.body).toEqual({
-        errors: ['Require at least of type os recycling material'],
+        errors: ['Require at least one type of recycling material'],
       });
     });
 
