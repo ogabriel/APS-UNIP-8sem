@@ -61,6 +61,25 @@ describe('POST /users', () => {
       expect(response.body).toEqual({ errors: ['User.email cannot be null'] });
     });
 
+    test('return an empty object when email is duplicated', async () => {
+      await createUser({ email: 'john@doe.com' });
+
+      const user_data = {
+        name: 'John',
+        email: 'john@doe.com',
+        password: 'password',
+        confirmation_password: 'password',
+      };
+
+      const response = await request(app)
+        .post('/api/v1/users')
+        .send(user_data)
+        .set('Accept', 'application/json');
+
+      expect(response.statusCode).toBe(400);
+      expect(response.body).toEqual({ errors: ['email must be unique'] });
+    });
+
     test('return an empty object when password is missing', async () => {
       const user_data = {
         name: 'John',
@@ -121,7 +140,7 @@ describe('POST /users/login and DELETE /users/logout', () => {
     test('return an empty object on login', async () => {
       const response = await request(app)
         .post('/api/v1/users/login')
-        .send({ email: 'john', password: 'password' })
+        .send({ email: 'john@doe.com', password: 'password' })
         .set('Accept', 'application/json');
 
       expect(response.statusCode).toBe(302);
