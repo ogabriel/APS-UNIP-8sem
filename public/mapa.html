@@ -49,9 +49,12 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./login.html">Fazer logout</a>
+            <form name="logoutForm"  action="/api/v1/users/logout" method="POST">
+              <input class="nav-link" type="submit" value="Fazer logout"/>
+            </form>
           </li>
         </ul>
+
         <form class="form-inline my-2 my-lg-0">
           <input
             class="form-control mr-sm-2"
