@@ -1,8 +1,8 @@
 const db = require('../app/models');
 
-beforeEach(async () => {
-  return await db.sequelize.sync({ force: true });
-});
+// beforeEach(async () => {
+//   return await db.sequelize.sync({ force: true });
+// });
 
 afterEach(async () => {
   const models = Object.values(db.sequelize.models);
