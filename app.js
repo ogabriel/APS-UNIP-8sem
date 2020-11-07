@@ -12,6 +12,7 @@ const app = express();
 
 // Configura json
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Configure session
 app.use(
