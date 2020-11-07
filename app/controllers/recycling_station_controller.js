@@ -29,22 +29,119 @@ router.get('/:id', function (req, res) {
   });
 });
 
-/*
-router.post('/', async (req, res) => {
-  RecyclingStation.create(req.body).then((data) =>{
-    res.json(data);
-  });
+router.post('/', (req, res) => {
+  RecyclingStation.create(req.body)
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((data) => {
+      res.status(400).send({ errors: data.errors.map((e) => e.message) });
+    });
 });
 
-router.post('/:id/add_plastic', async (req, res) => {});
+router.put('/:id/add_electronic', (req, res) => {
+  const id = req.params.id,
+    g = req.body.g;
 
-router.post('/:id/add_metal', async (req, res) => {});
+  if (!isNaN(id) && !isNaN(g)) {
+    RecyclingStation.increment({ electronic: g }, { where: { id: id } }).then(
+      (data) => {
+        const station = data[0][0][0];
 
-router.post('/:id/add_glass', async (req, res) => {});
+        if (station) {
+          res.json(station);
+        } else {
+          res.status(404).send();
+        }
+      }
+    );
+  } else {
+    res.status(400).send('Wrong type of data');
+  }
+});
 
-router.post('/:id/add_paper', async (req, res) => {});
+router.put('/:id/add_glass', (req, res) => {
+  const id = req.params.id,
+    g = req.body.g;
 
-router.post('/:id/add_electronic', async (req, res) => {});
-*/
+  if (!isNaN(id) && !isNaN(g)) {
+    RecyclingStation.increment({ glass: g }, { where: { id: id } }).then(
+      (data) => {
+        const station = data[0][0][0];
+
+        if (station) {
+          res.json(station);
+        } else {
+          res.status(404).send();
+        }
+      }
+    );
+  } else {
+    res.status(400).send('Wrong type of data');
+  }
+});
+
+router.put('/:id/add_metal', (req, res) => {
+  const id = req.params.id,
+    g = req.body.g;
+
+  if (!isNaN(id) && !isNaN(g)) {
+    RecyclingStation.increment({ metal: g }, { where: { id: id } }).then(
+      (data) => {
+        const station = data[0][0][0];
+
+        if (station) {
+          res.json(station);
+        } else {
+          res.status(404).send();
+        }
+      }
+    );
+  } else {
+    res.status(400).send('Wrong type of data');
+  }
+});
+
+router.put('/:id/add_paper', (req, res) => {
+  const id = req.params.id,
+    g = req.body.g;
+
+  if (!isNaN(id) && !isNaN(g)) {
+    RecyclingStation.increment({ paper: g }, { where: { id: id } }).then(
+      (data) => {
+        const station = data[0][0][0];
+
+        if (station) {
+          res.json(station);
+        } else {
+          res.status(404).send();
+        }
+      }
+    );
+  } else {
+    res.status(400).send('Wrong type of data');
+  }
+});
+
+router.put('/:id/add_plastic', (req, res) => {
+  const id = req.params.id,
+    g = req.body.g;
+
+  if (!isNaN(id) && !isNaN(g)) {
+    RecyclingStation.increment({ plastic: g }, { where: { id: id } }).then(
+      (data) => {
+        const station = data[0][0][0];
+
+        if (station) {
+          res.json(station);
+        } else {
+          res.status(404).send();
+        }
+      }
+    );
+  } else {
+    res.status(400).send('Wrong type of data');
+  }
+});
 
 module.exports = router;

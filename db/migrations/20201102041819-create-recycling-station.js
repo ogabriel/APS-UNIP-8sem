@@ -13,22 +13,23 @@ module.exports = {
         type: Sequelize.STRING,
       },
       localization: {
+        allowNull: false,
         type: Sequelize.GEOMETRY('POINT'),
       },
-      plastic_kg: {
-        type: Sequelize.FLOAT,
+      plastic: {
+        type: Sequelize.INTEGER,
       },
-      metal_kg: {
-        type: Sequelize.FLOAT,
+      metal: {
+        type: Sequelize.INTEGER,
       },
-      glass_kg: {
-        type: Sequelize.FLOAT,
+      glass: {
+        type: Sequelize.INTEGER,
       },
-      paper_kg: {
-        type: Sequelize.FLOAT,
+      paper: {
+        type: Sequelize.INTEGER,
       },
-      electronic_kg: {
-        type: Sequelize.FLOAT,
+      electronic: {
+        type: Sequelize.INTEGER,
       },
       UserId: {
         allowNull: false,
