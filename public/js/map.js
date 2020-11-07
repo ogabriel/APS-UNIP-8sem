@@ -42,4 +42,4 @@ function loadMap(data) {
   L.geoJSON(data, options).addTo(map);
 }
 
-getPlants().then((data) => loadMap(data));
+getStations().then((data) => loadMap(data));
