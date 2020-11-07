@@ -2,6 +2,7 @@
 
 const router = require('express').Router();
 const { User } = require('../models');
+const passport = require('../../config/passport');
 
 router.get('/:id', function (req, res) {
   User.findByPk(req.params.id).then((data) => {
@@ -13,20 +14,33 @@ router.get('/:id', function (req, res) {
   });
 });
 
-/*
-router.post('/', async (_req, _res) => {
-  // create user
-  // put him on the session
+router.post('/', (req, res) => {
+  const user_params = req.body;
+
+  if (user_params.password == user_params.confirmation_password) {
+    User.create(user_params)
+      .then((data) => {
+        res.json(data);
+      })
+      .catch((data) => {
+        res.status(400).send({ errors: data.errors.map((e) => e.message) });
+      });
+  } else {
+    res.status(400).send({ errors: ['Wrong password'] });
+  }
 });
 
-router.put('/login', async (req, res) => {
-  // put him on the session
-});
+router.post(
+  '/login',
+  passport.authenticate('local', {
+    successRedirect: '/mapa',
+    failureRedirect: '/login',
+  })
+);
 
-router.put('/logout', async (req, res) => {
-  // remove him from the session
+router.delete('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
 });
-});
-*/
 
 module.exports = router;
