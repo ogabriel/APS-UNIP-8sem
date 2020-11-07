@@ -145,7 +145,7 @@ describe('POST /users/login and DELETE /users/logout', () => {
 
       expect(response.statusCode).toBe(302);
       expect(response.redirect).toBe(true);
-      expect(response.headers.location).toBe('/login');
+      expect(response.headers.location).toBe('/login.html');
     });
   });
 
@@ -160,7 +160,7 @@ describe('POST /users/login and DELETE /users/logout', () => {
 
       expect(response_login.statusCode).toBe(302);
       expect(response_login.redirect).toBe(true);
-      expect(response_login.headers.location).toBe('/mapa');
+      expect(response_login.headers.location).toBe('/mapa.html');
 
       const response_logout = await request(app).delete('/api/v1/users/logout');
 
