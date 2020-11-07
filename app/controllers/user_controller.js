@@ -33,8 +33,8 @@ router.post('/', (req, res) => {
 router.post(
   '/login',
   passport.authenticate('local', {
-    successRedirect: '/mapa',
-    failureRedirect: '/login',
+    successRedirect: '/mapa.html',
+    failureRedirect: '/login.html',
   })
 );
 
