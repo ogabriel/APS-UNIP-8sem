@@ -1,35 +1,55 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>Criar Estações de Reciclagem</title>
-    
-        <link href="./css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css" />
-        <link href="./css/form.css" rel="stylesheet" />
-      </head>
 
-      <body>
-          <form class="form-create" action="/api/v1/recycling_stations" method="POST">
-            <h1 class="h3 mb-3 font-weight-normal">Crie uma nova estação de reciclagem</h1>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css"
+    />
+    <link href="./css/form.css" rel="stylesheet" />
+  </head>
 
-            <div class="form-group">
-                <label for="inputName">Nome da estação</label>
-                <input type="name" id="inputName" class="form-control" placeholder="Insira o nome da estação" name="name" required autofocus />
-            </div>
+  <body>
+    <form class="form-create" action="/api/v1/recycling_stations" method="POST">
+      <h1 class="h3 mb-3 font-weight-normal">
+        Crie uma nova estação de reciclagem
+      </h1>
 
-            <div class="form-group address">
-                <label for="inputAddress">Localização da estação</label>
-                <input type="text" id="inputAddress" class="form-control" placeholder="Insira a localização da estação" name="address" required />
-            </div>
+      <div class="form-group">
+        <label for="inputName">Nome da estação</label>
+        <input
+          type="name"
+          id="inputName"
+          class="form-control"
+          placeholder="Insira o nome da estação"
+          name="name"
+          required
+          autofocus
+        />
+      </div>
 
-            <button type="submit" class="btn btn-lg btn-primary btn-block">
-                Confirmar
-            </button>
-        </form>
+      <div class="form-group address">
+        <label for="inputAddress">Localização da estação</label>
+        <input
+          type="text"
+          id="inputAddress"
+          class="form-control"
+          placeholder="Insira a localização da estação"
+          name="address"
+          required
+        />
+      </div>
 
-        <script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script>
-        <script src="./js/geosearchForm.js"></script>
-      </body>
+      <button type="submit" class="btn btn-lg btn-primary btn-block">
+        Confirmar
+      </button>
+    </form>
+
+    <script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script>
+    <script src="./js/geosearchForm.js"></script>
+  </body>
 </html>
