@@ -10,8 +10,9 @@ router.get('/localizations', function (req, res) {
         type: 'Feature',
         properties: {
           popupContent: `
-          ${station.id}
           ${station.name}
+          <br>
+          <button class="btn btn-md btn-primary btn-block">Ir para</button>
           `,
         },
         geometry: station.localization,
