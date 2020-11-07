@@ -6,7 +6,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 async function getStations() {
-  const res = await fetch('/api/v1/recycling_stations/localization');
+  const res = await fetch('/api/v1/recycling_stations/localizations');
   const data = await res.json();
 
   return data;
