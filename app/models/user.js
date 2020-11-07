@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         isEmail: true,
       },
@@ -29,6 +30,10 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = (models) => {
     User.hasMany(models.RecyclingStation);
+  };
+
+  User.prototype.validPassword = function (password) {
+    return bcrypt.compareSync(password, this.password);
   };
 
   return User;
