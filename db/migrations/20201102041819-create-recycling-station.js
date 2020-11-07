@@ -13,6 +13,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       localization: {
+        allowNull: false,
         type: Sequelize.GEOMETRY('POINT'),
       },
       plastic: {
