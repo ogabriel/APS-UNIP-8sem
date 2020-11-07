@@ -38,9 +38,9 @@ router.post(
   })
 );
 
-router.delete('/logout', (req, res) => {
+router.post('/logout', (req, res) => {
   req.logout();
-  res.redirect('/');
+  res.redirect('/login.html');
 });
 
 module.exports = router;
