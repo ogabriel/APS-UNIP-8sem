@@ -38,7 +38,7 @@ router.post(
   })
 );
 
-router.post('/logout', (req, res) => {
+router.delete('/logout', (req, res) => {
   req.logout();
   res.redirect('/login.html');
 });
