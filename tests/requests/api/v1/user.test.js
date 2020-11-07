@@ -166,7 +166,7 @@ describe('POST /users/login and DELETE /users/logout', () => {
 
       expect(response_logout.statusCode).toBe(302);
       expect(response_logout.redirect).toBe(true);
-      expect(response_logout.headers.location).toBe('/');
+      expect(response_logout.headers.location).toBe('/login.html');
     });
   });
 });
