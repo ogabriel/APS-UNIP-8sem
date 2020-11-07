@@ -9,7 +9,10 @@ router.get('/localizations', function (req, res) {
       return {
         type: 'Feature',
         properties: {
-          popupContent: null,
+          popupContent: `
+          ${station.id}
+          ${station.name}
+          `,
         },
         geometry: station.localization,
       };
