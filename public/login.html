@@ -10,7 +10,7 @@
   </head>
 
   <body class="text-center">
-    <form class="form-signin" action="/api/v1/users/login", method="post">
+    <form class="form-signin" action="/api/v1/users/login" method="POST">
       <h1 class="h3 mb-3 font-weight-normal">Logue-se para usar</h1>
       <label for="inputEmail" class="sr-only">Endereço de e-mail</label>
       <input
@@ -32,9 +32,11 @@
         name="password"
         required
       />
+
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Logar
       </button>
+
       <a href="./criar_usuario.html" class="btn btn-lg btn-secondary btn-block"
         >Criar conta</a
       >
