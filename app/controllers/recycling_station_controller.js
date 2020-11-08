@@ -1,8 +1,7 @@
 'use strict';
 
 const router = require('express').Router();
-const db = require('../models');
-const RecyclingStation = db.RecyclingStation;
+const { sequelize, RecyclingStation } = require('../models');
 
 router.get('/localizations', function (req, res) {
   RecyclingStation.findAll().then((data) => {
@@ -27,11 +26,11 @@ router.get('/localizations', function (req, res) {
 router.get('/report', function (req, res) {
   RecyclingStation.findAll({
     attributes: [
-      [db.sequelize.fn('SUM', db.sequelize.col('electronic')), 'electronic'],
-      [db.sequelize.fn('SUM', db.sequelize.col('glass')), 'glass'],
-      [db.sequelize.fn('SUM', db.sequelize.col('metal')), 'metal'],
-      [db.sequelize.fn('SUM', db.sequelize.col('paper')), 'paper'],
-      [db.sequelize.fn('SUM', db.sequelize.col('plastic')), 'plastic'],
+      [sequelize.fn('SUM', sequelize.col('electronic')), 'electronic'],
+      [sequelize.fn('SUM', sequelize.col('glass')), 'glass'],
+      [sequelize.fn('SUM', sequelize.col('metal')), 'metal'],
+      [sequelize.fn('SUM', sequelize.col('paper')), 'paper'],
+      [sequelize.fn('SUM', sequelize.col('plastic')), 'plastic'],
     ],
   }).then((data) => {
     res.json(data[0]);
