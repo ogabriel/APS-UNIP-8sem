@@ -1,7 +1,8 @@
 'use strict';
 
 const router = require('express').Router();
-const { RecyclingStation } = require('../models');
+const db = require('../models');
+const RecyclingStation = db.RecyclingStation;
 
 router.get('/localizations', function (req, res) {
   RecyclingStation.findAll().then((data) => {
@@ -25,23 +26,15 @@ router.get('/localizations', function (req, res) {
 
 router.get('/report', function (req, res) {
   RecyclingStation.findAll({
-    attributes: [sequelize.fn('COUNT', sequelize.col('metal'))],
+    attributes: [
+      [db.sequelize.fn('SUM', db.sequelize.col('electronic')), 'electronic'],
+      [db.sequelize.fn('SUM', db.sequelize.col('glass')), 'glass'],
+      [db.sequelize.fn('SUM', db.sequelize.col('metal')), 'metal'],
+      [db.sequelize.fn('SUM', db.sequelize.col('paper')), 'paper'],
+      [db.sequelize.fn('SUM', db.sequelize.col('plastic')), 'plastic'],
+    ],
   }).then((data) => {
-    const localizations = data.map((station) => {
-      return {
-        type: 'Feature',
-        properties: {
-          popupContent: `
-          ${station.name}
-          <br>
-          <button class="btn btn-md btn-primary btn-block">Ir para</button>
-          `,
-        },
-        geometry: station.localization,
-      };
-    });
-
-    res.json(localizations);
+    res.json(data);
   });
 });
 
