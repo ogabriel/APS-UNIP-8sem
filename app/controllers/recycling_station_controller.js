@@ -4,7 +4,12 @@ const router = require('express').Router();
 const { RecyclingStation } = require('../models');
 
 router.get('/localizations', function (req, res) {
-  RecyclingStation.findAll().then((data) => {
+  const search = req.query.search;
+  const queryParams = search
+    ? { where: { name: { [sequelize.like]: `%${search}%` } } }
+    : {};
+
+  RecyclingStation.findAll(queryParams).then((data) => {
     const localizations = data.map((station) => {
       return {
         type: 'Feature',
