@@ -7,12 +7,16 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
+const methodOverride = require('method-override');
 const passport = require('passport');
 const app = express();
 
-// Configura json
+// Configure json
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Configure DELETE and PUT on forms
+app.use(methodOverride('_method'));
 
 // Configure session
 app.use(
@@ -20,7 +24,6 @@ app.use(
     secret: process.env.SESSION_SECRET || 'aps8',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true },
   })
 );
 
