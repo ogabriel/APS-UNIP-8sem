@@ -24,7 +24,6 @@ app.use(
     secret: process.env.SESSION_SECRET || 'aps8',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true },
   })
 );
 
