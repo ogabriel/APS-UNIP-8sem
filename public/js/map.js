@@ -1,5 +1,10 @@
 const map = L.map('mapid').setView([-23.554, -46.6333], 16);
 
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(map);
+
 async function getStations() {
   const res = await fetch('/api/v1/recycling_stations/localizations');
   const data = await res.json();
@@ -36,35 +41,34 @@ function stationIcon(feature, latlng) {
   return L.marker(latlng, { icon: myIcon });
 }
 
+let markers;
+
 // Load map with stores
 function loadMap(data) {
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  }).addTo(map);
-
   let options = {
     onEachFeature: onEachFeature,
     pointToLayer: stationIcon,
   };
 
-  L.geoJSON(data, options).addTo(map);
+  markers = L.geoJSON(data, options).addTo(map);
 }
 
 getStations().then((data) => loadMap(data));
 
-document.getElementById('search-button').addEventListener('click', function () {
-  const textSearch = document.getElementById('search-input').value;
+document
+  .getElementById('search-form')
+  .addEventListener('submit', function (event) {
+    event.preventDefault();
 
-  if (
-    textSearch &&
-    typeof textSearch == 'string' &&
-    /[a-zA-Z]+/.test(textSearch)
-  ) {
-    map.eachLayer((layer) => {
-      layer.remove();
-    });
+    const textSearch = document.getElementById('search-input').value;
 
-    getStationsSearch(textSearch).then((data) => loadMap(data));
-  }
-});
+    if (
+      textSearch &&
+      typeof textSearch == 'string' &&
+      /[a-zA-Z]+/.test(textSearch)
+    ) {
+      map.removeLayer(markers);
+
+      getStationsSearch(textSearch).then((data) => loadMap(data));
+    }
+  });
