@@ -6,7 +6,7 @@ const { sequelize, Op, RecyclingStation } = require('../models');
 router.get('/localizations', function (req, res) {
   const name = req.query.name;
   const queryParams = name
-    ? { where: { name: { [Op.like]: `%${name}%` } } }
+    ? { where: { name: { [Op.iLike]: `%${name}%` } } }
     : {};
 
   RecyclingStation.findAll(queryParams).then((data) => {
