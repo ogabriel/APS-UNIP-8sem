@@ -23,6 +23,28 @@ router.get('/localizations', function (req, res) {
   });
 });
 
+router.get('/report', function (req, res) {
+  RecyclingStation.findAll({
+    attributes: [sequelize.fn('COUNT', sequelize.col('metal'))],
+  }).then((data) => {
+    const localizations = data.map((station) => {
+      return {
+        type: 'Feature',
+        properties: {
+          popupContent: `
+          ${station.name}
+          <br>
+          <button class="btn btn-md btn-primary btn-block">Ir para</button>
+          `,
+        },
+        geometry: station.localization,
+      };
+    });
+
+    res.json(localizations);
+  });
+});
+
 router.get('/:id', function (req, res) {
   RecyclingStation.findByPk(req.params.id).then((data) => {
     if (data) {
