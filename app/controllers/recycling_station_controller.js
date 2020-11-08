@@ -1,8 +1,7 @@
 'use strict';
 
 const router = require('express').Router();
-const { sequelize, Sequelize, RecyclingStation } = require('../models');
-const Op = Sequelize.Op;
+const { sequelize, Op, RecyclingStation } = require('../models');
 
 router.get('/localizations', function (req, res) {
   const name = req.query.name;
