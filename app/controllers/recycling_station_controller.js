@@ -34,7 +34,7 @@ router.get('/report', function (req, res) {
       [db.sequelize.fn('SUM', db.sequelize.col('plastic')), 'plastic'],
     ],
   }).then((data) => {
-    res.json(data);
+    res.json(data[0]);
   });
 });
 
