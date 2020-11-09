@@ -22,7 +22,7 @@ console.log(div);
 const input = div.querySelector('input[type="text"]');
 console.log(input);
 
-form.addEventListener('submit', async (event) => {
+input.addEventListener('input', async (event) => {
   event.preventDefault();
 
   var results = await provider.search({ query: input.value });
