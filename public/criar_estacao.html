@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width" />
     <title>Criar Estações de Reciclagem</title>
 
+    <link href="./css/station.css" rel="stylesheet" />
     <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""
+  />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css"
@@ -14,7 +21,7 @@
   </head>
 
   <body>
-    <form class="form-create" action="/api/v1/recycling_stations" method="POST">
+    <form class="form-create" action="/api/v1/recycling_stations" autocomplete="off" method="POST">
       <h1 class="h3 mb-3 font-weight-normal">
         Crie uma nova estação de reciclagem
       </h1>
@@ -42,6 +49,7 @@
           name="localization"
           required
         />
+        <div id="map"></div>
       </div>
 
       <div class="form-group materials">
@@ -107,6 +115,11 @@
       </button>
     </form>
 
+    <script
+    src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""
+  ></script>
     <script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script>
     <script src="./js/geosearchForm.js"></script>
   </body>
