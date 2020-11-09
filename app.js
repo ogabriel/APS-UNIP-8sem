@@ -15,6 +15,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Configure views
+app.set('view engine', 'ejs');
+
 // Configure DELETE and PUT on forms
 app.use(methodOverride('_method'));
 
@@ -35,9 +38,8 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Config api routes
-const routes = require('./config/routes');
-
-app.use('/api/v1', routes);
+const routes = require(path.join(__dirname, './config/routes'));
+app.use('/', routes);
 
 // Exports whole app
 module.exports = app;
