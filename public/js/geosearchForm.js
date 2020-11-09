@@ -28,8 +28,7 @@ form.addEventListener('submit', async (event) => {
   var results = await provider.search({ query: input.value });
 
   var autocompleteArray = new Array();
-  autocompleteArray = results.forEach(function(result) {return result.label});
-  console.log(autocompleteArray);
+  autocompleteArray = results.map(a => a.label);
   autocomplete(document.getElementById("inputAddress"), autocompleteArray);
 
   results.forEach(function(result){ 
