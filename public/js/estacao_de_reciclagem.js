@@ -1,5 +1,5 @@
 const stationId = window['id'] || undefined;
-const button = document.querySelector("button");
+const boxesIds = ["#plastic", "#metal", "#glass", "#paper", "#electronic"];
 
 async function putMaterialQuantity(data) {
     const { id, bodyRequest, endpoint } = data;
@@ -18,58 +18,74 @@ async function putMaterialQuantity(data) {
     return response.json();
 }
 
-button.onclick = () => {
-    document.querySelectorAll("tbody input").forEach((input) => {
-        var name = input.name
-        value = parseInt(input.value);
-        if (stationId && value) {
-            switch (name) {
-                case "plasticQuantity":
+boxesIds.forEach((boxId) => {
+    var button = document.querySelector(`${boxId} button`);
+    button.onclick = () => {
+        var input = document.querySelector(`${boxId} input[name='quantity']`);
+        var value = parseInt(input.value);
+        if (value && stationId) {
+            switch (boxId) {
+                case "#plastic":
                     putMaterialQuantity({
                         id: stationId,
                         bodyRequest: { g: value },
                         endpoint: 'add_plastic'
                     })
-                        .then(console.log)
+                        .then((response) => {
+                            console.log(response);
+                            deposited = true;
+                        })
                         .catch(console.error);
                     break;
-                case "metalQuantity":
+                case "#metal":
                     putMaterialQuantity({
                         id: stationId,
                         bodyRequest: { g: value },
                         endpoint: 'add_metal'
                     })
-                        .then(console.log)
+                        .then((response) => {
+                            console.log(response);
+                            deposited = true;
+                        })
                         .catch(console.error);
                     break;
-                case "glassQuantity":
+                case "#glass":
                     putMaterialQuantity({
                         id: stationId,
                         bodyRequest: { g: value },
                         endpoint: 'add_glass'
                     })
-                        .then(console.log)
+                        .then((response) => {
+                            console.log(response);
+                            deposited = true;
+                        })
                         .catch(console.error);
                     break;
-                case "paperQuantity":
+                case "#paper":
                     putMaterialQuantity({
                         id: stationId,
                         bodyRequest: { g: value },
                         endpoint: 'add_paper'
                     })
-                        .then(console.log)
+                        .then((response) => {
+                            console.log(response);
+                            deposited = true;
+                        })
                         .catch(console.error);
                     break;
-                case "eletronicQuantity":
+                case "#electronic":
                     putMaterialQuantity({
                         id: stationId,
                         bodyRequest: { g: value },
                         endpoint: 'add_electronic'
                     })
-                        .then(console.log)
+                        .then((response) => {
+                            console.log(response);
+                            deposited = true;
+                        })
                         .catch(console.error);
                     break;
             }
         }
-    });
-}
+    };
+});
