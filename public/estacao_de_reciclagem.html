@@ -11,70 +11,99 @@
 </head>
 
 <body class="text-center">
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Nome da estação</h1>
+        <p class="lead">Para depositar os materiais desejados na {nome da estação} informe a quantidade em gramas e
+            clique em depositar. Para maiores informações entre em contato com o responsavel: {email do dono}</p>
+    </div>
+
     <div class="custom container">
-        <div class="materials">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">
-                            <h4>Material</h4>
-                        </th>
-                        <th scope="col">
-                            <h4>Quantidade em gramas</h4>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <h5 class="custom">Plástico</h5>
-                        </td>
-                        <td>
-                            <input pattern="\d+" id="inputQuantity" class="form-control" placeholder=""
-                                name="plasticQuantity" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="custom">Metal</h5>
-                        </td>
-                        <td>
-                            <input pattern="\d+" id="inputQuantity" class="form-control" placeholder=""
-                                name="metalQuantity" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="custom">Vidro</h5>
-                        </td>
-                        <td>
-                            <input pattern="\d+" id="inputQuantity" class="form-control" placeholder=""
-                                name="glassQuantity" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="custom">Papel</h5>
-                        </td>
-                        <td>
-                            <input pattern="\d+" id="inputQuantity" class="form-control" placeholder=""
-                                name="paperQuantity" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="custom">Eletrônico</h5>
-                        </td>
-                        <td>
-                            <input pattern="\d+" id="inputQuantity" class="form-control" placeholder=""
-                                name="eletronicQuantity" />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class="custom btn btn-lg btn-primary btn-block">
-                Depositar
-            </button>
+        <div class="card-deck mb-3 text-center" style="right: center;">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 id="plastic" class="my-0 font-weight-normal">Plástico</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-image-overlay">
+                        <img class="card-img" src="images/plastic-bottle.png" height="140">
+                        <!--Icons made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
+                    </div>
+                    <div class="card-title">
+                        <p class="lead">Total: </p>
+                    </div>
+                    <p><input pattern="\d+" id="inputQuantity" class="form-control" placeholder="Quantidade"
+                            name="plasticQuantity" /></p>
+                    <button type="button" class="btn btn-lg btn-block btn-primary">Depositar</button>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Metal</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-image-overlay">
+                        <img class="card-img" src="images/tomato-sauce.png" height="130" style="margin-bottom: 10px;">
+                        <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
+                    </div>
+                    <div class="card-title">
+                        <p class="lead">Total: </p>
+                        <p><input pattern="\d+" id="inputQuantity" class="form-control" placeholder="Quantidade"
+                                name="metalQuantity" /></p>
+                        <button type="button" class="btn btn-lg btn-block btn-primary">Depositar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Vidro</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-image-overlay">
+                        <img class="card-img" src="images/glass-bottle.png" height="140">
+                        <!--Icons made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
+                    </div>
+                    <div class="card-title">
+                        <p class="lead">Total: </p>
+                        <p><input pattern="\d+" id="inputQuantity" class="form-control" placeholder="Quantidade"
+                                name="glassQuantity" /></p>
+                        <button type="button" class="btn btn-lg btn-block btn-primary">Depositar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Papel</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-image-overlay">
+                        <img class="card-img" src="images/paper.png" height="140">
+                        <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
+                    </div>
+                    <div class="card-title">
+                        <p class="lead">Total: </p>
+                        <p><input pattern="\d+" id="inputQuantity" class="form-control" placeholder="Quantidade"
+                                name="paperQuantity" /></p>
+                        <button type="button" class="btn btn-lg btn-block btn-primary">Depositar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Eletrônico</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-image-overlay">
+                        <img class="card-img" src="images/power-bank.png" height="140">
+                        <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
+                    </div>
+                    <div class="card-title">
+                        <p class="lead">Total: </p>
+                        <p><input pattern="\d+" id="inputQuantity" class="form-control" placeholder="Quantidade"
+                                name="electronicQuantity" /></p>
+                        <button type="button" class="btn btn-lg btn-block btn-primary">Depositar</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="./js/estacao_de_reciclagem.js" charset="utf-8"></script>
