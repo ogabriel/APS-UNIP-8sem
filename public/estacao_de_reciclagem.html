@@ -1,107 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Página principal</title>
 
     <link href="./css/bootstrap.min.css" rel="stylesheet" />
     <link href="./css/rstation.css" rel="stylesheet" />
-  </head>
+</head>
 
-  <body class="text-center">
+<body class="text-center">
     <div class="custom container">
-      <div class="materials">
-        <form class="" action="" method="PUT">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">
-                  <h4>Material</h4>
-                </th>
-                <th scope="col">
-                  <h4>Quantidade em gramas</h4>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <h5 class="custom">Plástico</h5>
-                </td>
-                <td>
-                  <input
-                    pattern="\d+"
-                    id="inputQuantity"
-                    class="form-control"
-                    placeholder=""
-                    name="plasticQuantity"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h5 class="custom">Metal</h5>
-                </td>
-                <td>
-                  <input
-                    pattern="\d+"
-                    id="inputQuantity"
-                    class="form-control"
-                    placeholder=""
-                    name="metalQuantity"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h5 class="custom">Vidro</h5>
-                </td>
-                <td>
-                  <input
-                    pattern="\d+"
-                    id="inputQuantity"
-                    class="form-control"
-                    placeholder=""
-                    name="glassQuantity"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h5 class="custom">Papel</h5>
-                </td>
-                <td>
-                  <input
-                    pattern="\d+"
-                    id="inputQuantity"
-                    class="form-control"
-                    placeholder=""
-                    name="paperQuantity"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h5 class="custom">Eletrônico</h5>
-                </td>
-                <td>
-                  <input
-                    pattern="\d+"
-                    id="inputQuantity"
-                    class="form-control"
-                    placeholder=""
-                    name="eletronicQuantity"
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <button class="custom btn btn-lg btn-primary btn-block" type="submit">
-            Depositar
-          </button>
-        </form>
-      </div>
+        <div class="materials">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <h4>Material</h4>
+                        </th>
+                        <th scope="col">
+                            <h4>Quantidade em gramas</h4>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <h5 class="custom">Plástico</h5>
+                        </td>
+                        <td>
+                            <input pattern="\d+" id="inputQuantity" class="form-control" placeholder=""
+                                name="plasticQuantity" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="custom">Metal</h5>
+                        </td>
+                        <td>
+                            <input pattern="\d+" id="inputQuantity" class="form-control" placeholder=""
+                                name="metalQuantity" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="custom">Vidro</h5>
+                        </td>
+                        <td>
+                            <input pattern="\d+" id="inputQuantity" class="form-control" placeholder=""
+                                name="glassQuantity" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="custom">Papel</h5>
+                        </td>
+                        <td>
+                            <input pattern="\d+" id="inputQuantity" class="form-control" placeholder=""
+                                name="paperQuantity" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="custom">Eletrônico</h5>
+                        </td>
+                        <td>
+                            <input pattern="\d+" id="inputQuantity" class="form-control" placeholder=""
+                                name="eletronicQuantity" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="custom btn btn-lg btn-primary btn-block">
+                Depositar
+            </button>
+        </div>
     </div>
-  </body>
+    <script src="./js/estacao_de_reciclagem.js" charset="utf-8"></script>
+</body>
+
 </html>
