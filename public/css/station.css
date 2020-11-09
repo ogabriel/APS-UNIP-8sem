@@ -1,3 +1,8 @@
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
 .autocomplete-items {
     position: absolute;
     border: 1px solid #d4d4d4;
