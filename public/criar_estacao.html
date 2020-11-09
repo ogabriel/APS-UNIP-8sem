@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width" />
     <title>Criar Estações de Reciclagem</title>
 
-    <link href="./css/station.css" rel="stylesheet" />
     <link href="./css/bootstrap.min.css" rel="stylesheet" />
     <link
     rel="stylesheet"
@@ -18,6 +17,7 @@
       href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css"
     />
     <link href="./css/form.css" rel="stylesheet" />
+    <link href="./css/mapmini.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -41,15 +41,7 @@
 
       <div class="form-group address">
         <label for="inputAddress">Localização da estação</label>
-        <input
-          type="text"
-          id="inputAddress"
-          class="form-control"
-          placeholder="Insira a localização da estação"
-          name="localization"
-          required
-        />
-        <div id="map"></div>
+        <div id="mapid"></div>
       </div>
 
       <div class="form-group materials">

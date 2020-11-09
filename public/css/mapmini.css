@@ -1,0 +1,13 @@
+html,
+body {
+  height: 100%;
+}
+
+#mapid {
+  width: 470px;
+  height: 360px;
+}
+
+.form-create {
+  max-width: 500px;
+}
