@@ -25,6 +25,7 @@ console.log(input);
 input.addEventListener('input', async (event) => {
   event.preventDefault();
 
+  await new Promise(r => setTimeout(r, 2500));
   var results = await provider.search({ query: input.value });
 
   var autocompleteArray = new Array();
