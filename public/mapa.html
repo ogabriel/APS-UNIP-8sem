@@ -44,10 +44,17 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Mapa de árvores<span class="sr-only">(current)</span></a
+            <a class="nav-link" href="/"
+              >Mapa de estações<span class="sr-only">(current)</span></a
             >
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/criar_estacao.html"
+              >Criar estação<span class="sr-only"></span></a
+            >
+          </li>
+
           <li class="nav-item">
             <form
               name="logoutForm"
@@ -63,14 +70,19 @@
           </li>
         </ul>
 
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" id="search-form">
           <input
             class="form-control mr-sm-2"
             type="search"
             placeholder="Pesquisar árvores"
             aria-label="Search"
+            id="search-input"
           />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          <button
+            class="btn btn-outline-success my-2 my-sm-0"
+            id="search-button"
+            type="submit"
+          >
             Pesquisar
           </button>
         </form>
