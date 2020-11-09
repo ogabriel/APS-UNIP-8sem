@@ -1,10 +1,15 @@
 'use strict';
 
 const router = require('express').Router();
-const { sequelize, RecyclingStation } = require('../models');
+const { sequelize, Op, RecyclingStation } = require('../models');
 
 router.get('/localizations', function (req, res) {
-  RecyclingStation.findAll().then((data) => {
+  const name = req.query.name;
+  const queryParams = name
+    ? { where: { name: { [Op.iLike]: `%${name}%` } } }
+    : {};
+
+  RecyclingStation.findAll(queryParams).then((data) => {
     const localizations = data.map((station) => {
       return {
         type: 'Feature',

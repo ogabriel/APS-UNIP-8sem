@@ -12,6 +12,15 @@ async function getStations() {
   return data;
 }
 
+async function getStationsSearch(name) {
+  const res = await fetch(
+    `/api/v1/recycling_stations/localizations?name=${name}`
+  );
+  const data = await res.json();
+
+  return data;
+}
+
 function onEachFeature(feature, layer) {
   if (feature.properties && feature.properties.popupContent) {
     layer.bindPopup(feature.properties.popupContent);
@@ -32,6 +41,8 @@ function stationIcon(feature, latlng) {
   return L.marker(latlng, { icon: myIcon });
 }
 
+let markers;
+
 // Load map with stores
 function loadMap(data) {
   let options = {
@@ -39,7 +50,25 @@ function loadMap(data) {
     pointToLayer: stationIcon,
   };
 
-  L.geoJSON(data, options).addTo(map);
+  markers = L.geoJSON(data, options).addTo(map);
 }
 
 getStations().then((data) => loadMap(data));
+
+document
+  .getElementById('search-form')
+  .addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const textSearch = document.getElementById('search-input').value;
+
+    if (
+      textSearch &&
+      typeof textSearch == 'string' &&
+      /[a-zA-Z]+/.test(textSearch)
+    ) {
+      map.removeLayer(markers);
+
+      getStationsSearch(textSearch).then((data) => loadMap(data));
+    }
+  });
