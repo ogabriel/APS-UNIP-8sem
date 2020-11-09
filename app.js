@@ -38,7 +38,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Config api routes
-const routes = require(path.join(__dirname, './config/routes'));
+const routes = require(path.join(__dirname, 'config/routes'));
 app.use('/', routes);
 
 // Exports whole app
