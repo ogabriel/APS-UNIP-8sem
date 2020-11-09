@@ -4,7 +4,7 @@ Não executar o prettier por enquanto, capaz de mudar tais coisas.*/
 var GeoSearchControl = window.GeoSearch.GeoSearchControl;
 var OpenStreetMapProvider = window.GeoSearch.OpenStreetMapProvider;
 
-var provider = new OpenStreetMapProvider({ params: { countrycodes: 'br' }, });
+var provider = new OpenStreetMapProvider({ params: { countrycodes: 'br' } });
 
 var searchControl = new GeoSearchControl({
   provider: provider,
@@ -29,21 +29,19 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 map.addControl(searchControl);
 
 const form = document.querySelector('form');
-console.log(form);
 const div = form.querySelector('div[class="form-group address"]');
-console.log(div);
 const input = div.querySelector('input[type="text"]');
-console.log(input);
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   var results = await provider.search({ query: input.value });
 
-  results.forEach(function(result){ 
-    delete result.label
-    delete result.bounds
-    delete result.raw });
+  results.forEach(function (result) {
+    delete result.label;
+    delete result.bounds;
+    delete result.raw;
+  });
 
   console.log(results);
 });
