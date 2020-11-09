@@ -12,8 +12,8 @@ var provider = new OpenStreetMapProvider();
   autoCompleteDelay: 400, // optional: number      - default 250
 }); */
 
-var map = new L.Map('map').setView([-23.554, -46.6333], 16);;
-map.addControl(searchControl);
+/*var map = new L.Map('map').setView([-23.554, -46.6333], 16);;
+map.addControl(searchControl);*/
 
 const form = document.querySelector('form');
 console.log(form);
