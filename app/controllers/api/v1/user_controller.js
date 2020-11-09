@@ -1,8 +1,9 @@
 'use strict';
 
+const path = require('path');
 const router = require('express').Router();
-const { User } = require('../models');
-const passport = require('../../config/passport');
+const { User } = require(path.join(__dirname, 'app/models'));
+const passport = require(path.join(__dirname, 'config/passport'));
 
 router.get('/:id', function (req, res) {
   User.findByPk(req.params.id).then((data) => {
