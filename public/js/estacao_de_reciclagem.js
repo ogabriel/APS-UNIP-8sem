@@ -19,45 +19,55 @@ async function putMaterialQuantity(data) {
 }
 
 button.onclick = () => {
-    document.querySelectorAll("input").forEach((input) => {
+    document.querySelectorAll("tbody input").forEach((input) => {
         var name = input.name
         value = parseInt(input.value);
-        if (stationId && name != "" && value) {
+        if (stationId && value) {
             switch (name) {
                 case "plasticQuantity":
                     putMaterialQuantity({
                         id: stationId,
                         bodyRequest: { g: value },
                         endpoint: 'add_plastic'
-                    }).then(console.log);
+                    })
+                        .then(console.log)
+                        .catch(console.error);
                     break;
                 case "metalQuantity":
                     putMaterialQuantity({
                         id: stationId,
                         bodyRequest: { g: value },
                         endpoint: 'add_metal'
-                    }).then(console.log);
+                    })
+                        .then(console.log)
+                        .catch(console.error);
                     break;
                 case "glassQuantity":
                     putMaterialQuantity({
                         id: stationId,
                         bodyRequest: { g: value },
                         endpoint: 'add_glass'
-                    }).then(console.log);
+                    })
+                        .then(console.log)
+                        .catch(console.error);
                     break;
                 case "paperQuantity":
                     putMaterialQuantity({
                         id: stationId,
                         bodyRequest: { g: value },
                         endpoint: 'add_paper'
-                    }).then(console.log);
+                    })
+                        .then(console.log)
+                        .catch(console.error);
                     break;
                 case "eletronicQuantity":
                     putMaterialQuantity({
                         id: stationId,
                         bodyRequest: { g: value },
-                        endpoint: 'add_eletronic'
-                    }).then(console.log);
+                        endpoint: 'add_electronic'
+                    })
+                        .then(console.log)
+                        .catch(console.error);
                     break;
             }
         }
