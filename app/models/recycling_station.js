@@ -51,6 +51,7 @@ module.exports = (sequelize, DataTypes) => {
   RecyclingStation.associate = (models) => {
     RecyclingStation.belongsTo(models.User, {
       foreignKey: {
+        name: 'id',
         allowNull: false,
       },
     });

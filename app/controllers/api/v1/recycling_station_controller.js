@@ -57,6 +57,7 @@ router.get('/:id', function (req, res) {
 });
 
 router.post('/', (req, res) => {
+  console.log(req.body);
   RecyclingStation.create(req.body)
     .then((data) => {
       res.json(data);

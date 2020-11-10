@@ -44,4 +44,13 @@ router.delete('/logout', (req, res) => {
   res.redirect('/login.html');
 });
 
+router.get('/me', (req, res) => {
+  if (req.user) {
+    return res.send(req.user);
+  }
+  res.status(404).send(
+    { errors: [{ message: 'Missing station' }] }
+  );
+});
+
 module.exports = router;
