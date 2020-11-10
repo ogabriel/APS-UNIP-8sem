@@ -1,112 +1,167 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Página principal</title>
 
     <link href="./css/bootstrap.min.css" rel="stylesheet" />
     <link href="./css/rstation.css" rel="stylesheet" />
-</head>
+  </head>
 
-<body class="text-center">
+  <body class="text-center">
     <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">Nome da estação</h1>
-        <p class="lead">Para depositar os materiais desejados na {nome da estação} informe a quantidade em gramas e
-            clique em depositar. Para maiores informações entre em contato com o responsavel: {email do dono}</p>
+      <h1 class="display-4"></h1>
+      <p id="desc" class="lead"></p>
     </div>
 
     <div class="custom container">
-        <div class="card-deck mb-3 text-center" style="right: center;">
-            <div id="plastic" class="card mb-4 box-shadow">
-                <div class="card-header">
-                    <h4 id="plastic" class="my-0 font-weight-normal">Plástico</h4>
-                </div>
-                <div class="card-body">
-                    <div class="card-image-overlay">
-                        <img class="card-img" src="images/plastic-bottle.png" height="140">
-                        <!--Icons made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
-                    </div>
-                    <div class="card-title">
-                        <p class="lead">Total: </p>
-                    </div>
-                    <p><input pattern="\d+" id="inputQuantity" class="form-control" placeholder="Quantidade"
-                            name="quantity" /></p>
-                    <button type="button" class="btn btn-lg btn-block btn-primary">Depositar</button>
-                </div>
+      <div class="card-deck mb-3 text-center" style="right: center;">
+        <div id="plastic" class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 id="plastic" class="my-0 font-weight-normal">Plástico</h4>
+          </div>
+          <div class="card-body">
+            <div class="card-image-overlay">
+              <img
+                class="card-img"
+                src="images/plastic-bottle.png"
+                height="140"
+              />
+              <!--Icons made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
             </div>
-            <div id="metal" class="card mb-4 box-shadow">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Metal</h4>
-                </div>
-                <div class="card-body">
-                    <div class="card-image-overlay">
-                        <img class="card-img" src="images/tomato-sauce.png" height="130" style="margin-bottom: 10px;">
-                        <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
-                    </div>
-                    <div class="card-title">
-                        <p class="lead">Total: </p>
-                        <p><input pattern="\d+" id="inputQuantity" class="form-control" placeholder="Quantidade"
-                                name="quantity" /></p>
-                        <button type="button" class="btn btn-lg btn-block btn-primary">Depositar</button>
-                    </div>
-                </div>
+            <div class="card-title">
+              <p class="lead">Total:</p>
             </div>
-            <div id="glass" class="card mb-4 box-shadow">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Vidro</h4>
-                </div>
-                <div class="card-body">
-                    <div class="card-image-overlay">
-                        <img class="card-img" src="images/glass-bottle.png" height="140">
-                        <!--Icons made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
-                    </div>
-                    <div class="card-title">
-                        <p class="lead">Total: </p>
-                        <p><input pattern="\d+" id="inputQuantity" class="form-control" placeholder="Quantidade"
-                                name="quantity" /></p>
-                        <button type="button" class="btn btn-lg btn-block btn-primary">Depositar</button>
-                    </div>
-                </div>
-            </div>
-            <div id="paper" class="card mb-4 box-shadow">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Papel</h4>
-                </div>
-                <div class="card-body">
-                    <div class="card-image-overlay">
-                        <img class="card-img" src="images/paper.png" height="140">
-                        <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
-                    </div>
-                    <div class="card-title">
-                        <p class="lead">Total: </p>
-                        <p><input pattern="\d+" id="inputQuantity" class="form-control" placeholder="Quantidade"
-                                name="quantity" /></p>
-                        <button type="button" class="btn btn-lg btn-block btn-primary">Depositar</button>
-                    </div>
-                </div>
-            </div>
-            <div id="electronic" class="card mb-4 box-shadow">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Eletrônico</h4>
-                </div>
-                <div class="card-body">
-                    <div class="card-image-overlay">
-                        <img class="card-img" src="images/power-bank.png" height="140">
-                        <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
-                    </div>
-                    <div class="card-title">
-                        <p class="lead">Total: </p>
-                        <p><input pattern="\d+" id="inputQuantity" class="form-control" placeholder="Quantidade"
-                                name="quantity" /></p>
-                        <button type="button" class="btn btn-lg btn-block btn-primary">Depositar</button>
-                    </div>
-                </div>
-            </div>
+            <p>
+              <input
+                pattern="\d+"
+                id="inputQuantity"
+                class="form-control"
+                placeholder="Quantidade"
+                name="quantity"
+              />
+            </p>
+            <button type="button" class="btn btn-lg btn-block btn-primary">
+              Depositar
+            </button>
+          </div>
         </div>
+        <div id="metal" class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Metal</h4>
+          </div>
+          <div class="card-body">
+            <div class="card-image-overlay">
+              <img
+                class="card-img"
+                src="images/tomato-sauce.png"
+                height="130"
+                style="margin-bottom: 10px;"
+              />
+              <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
+            </div>
+            <div class="card-title">
+              <p class="lead">Total:</p>
+              <p>
+                <input
+                  pattern="\d+"
+                  id="inputQuantity"
+                  class="form-control"
+                  placeholder="Quantidade"
+                  name="quantity"
+                />
+              </p>
+              <button type="button" class="btn btn-lg btn-block btn-primary">
+                Depositar
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="glass" class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Vidro</h4>
+          </div>
+          <div class="card-body">
+            <div class="card-image-overlay">
+              <img
+                class="card-img"
+                src="images/glass-bottle.png"
+                height="140"
+              />
+              <!--Icons made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
+            </div>
+            <div class="card-title">
+              <p class="lead">Total:</p>
+              <p>
+                <input
+                  pattern="\d+"
+                  id="inputQuantity"
+                  class="form-control"
+                  placeholder="Quantidade"
+                  name="quantity"
+                />
+              </p>
+              <button type="button" class="btn btn-lg btn-block btn-primary">
+                Depositar
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="paper" class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Papel</h4>
+          </div>
+          <div class="card-body">
+            <div class="card-image-overlay">
+              <img class="card-img" src="images/paper.png" height="140" />
+              <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
+            </div>
+            <div class="card-title">
+              <p class="lead">Total:</p>
+              <p>
+                <input
+                  pattern="\d+"
+                  id="inputQuantity"
+                  class="form-control"
+                  placeholder="Quantidade"
+                  name="quantity"
+                />
+              </p>
+              <button type="button" class="btn btn-lg btn-block btn-primary">
+                Depositar
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="electronic" class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Eletrônico</h4>
+          </div>
+          <div class="card-body">
+            <div class="card-image-overlay">
+              <img class="card-img" src="images/power-bank.png" height="140" />
+              <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
+            </div>
+            <div class="card-title">
+              <p class="lead">Total:</p>
+              <p>
+                <input
+                  pattern="\d+"
+                  id="inputQuantity"
+                  class="form-control"
+                  placeholder="Quantidade"
+                  name="quantity"
+                />
+              </p>
+              <button type="button" class="btn btn-lg btn-block btn-primary">
+                Depositar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="./js/estacao_de_reciclagem.js" charset="utf-8"></script>
-</body>
-
+  </body>
 </html>
