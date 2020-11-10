@@ -1,4 +1,4 @@
-const stationId = window['id'] || undefined;
+const stationId = window['id'] || 1; // teste
 const boxesIds = ['#plastic', '#metal', '#glass', '#paper', '#electronic'];
 
 async function putMaterialQuantity(data) {
