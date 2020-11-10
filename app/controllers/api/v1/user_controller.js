@@ -45,12 +45,10 @@ router.delete('/logout', (req, res) => {
 });
 
 router.get('/me', (req, res) => {
-  if (req.user) {
-    return res.send(req.user);
+  if (req.user.id) {
+    return res.send(req.user.id);
   }
-  res.status(404).send(
-    { errors: [{ message: 'Missing station' }] }
-  );
+  res.status(404).send({ errors: [{ message: 'Missing station' }] });
 });
 
 module.exports = router;
