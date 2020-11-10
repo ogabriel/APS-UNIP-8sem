@@ -2,8 +2,8 @@
 
 const path = require('path');
 const router = require('express').Router();
-const { User } = require(path.join(__dirname, 'app/models'));
-const passport = require(path.join(__dirname, 'config/passport'));
+const { User } = require(path.join(process.cwd(), 'app/models'));
+const passport = require(path.join(process.cwd(), 'config/passport'));
 
 router.get('/:id', function (req, res) {
   User.findByPk(req.params.id).then((data) => {

@@ -3,7 +3,7 @@
 const path = require('path');
 const router = require('express').Router();
 const { sequelize, Op, RecyclingStation } = require(path.join(
-  __dirname,
+  process.cwd(),
   'app/models'
 ));
 
