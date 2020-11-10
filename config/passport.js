@@ -20,11 +20,11 @@ passport.use(
 );
 
 passport.serializeUser(function (user, done) {
-  done(null, { id: user.id, email: user.email });
+  done(null, { id: user.id, email: user.email, name: user.name });
 });
 
 passport.deserializeUser(function (user, done) {
-  done(null, { id: user.id, email: user.email });
+  done(null, { id: user.id, email: user.email, name: user.name });
 });
 
 module.exports = passport;
