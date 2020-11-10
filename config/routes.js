@@ -1,11 +1,23 @@
-const Router = require('express').Router();
+const path = require('path');
+const router = require('express').Router();
 
 // require controllers
-const UserController = require('../app/controllers/user_controller');
-const RecyclingStationController = require('../app/controllers/recycling_station_controller');
+const PageController = require(path.join(
+  process.cwd(),
+  'app/controllers/page_controller'
+));
+const UserController = require(path.join(
+  process.cwd(),
+  'app/controllers/api/v1/user_controller'
+));
+const RecyclingStationController = require(path.join(
+  process.cwd(),
+  'app/controllers/api/v1/recycling_station_controller'
+));
 
 // add use controllers
-Router.use('/users', UserController);
-Router.use('/recycling_stations', RecyclingStationController);
+router.use('/', PageController);
+router.use('/api/v1/users', UserController);
+router.use('/api/v1/recycling_stations', RecyclingStationController);
 
-module.exports = Router;
+module.exports = router;

@@ -1,7 +1,11 @@
 'use strict';
 
+const path = require('path');
 const router = require('express').Router();
-const { sequelize, Op, RecyclingStation } = require('../models');
+const { sequelize, Op, RecyclingStation } = require(path.join(
+  process.cwd(),
+  'app/models'
+));
 
 router.get('/localizations', function (req, res) {
   const name = req.query.name;
