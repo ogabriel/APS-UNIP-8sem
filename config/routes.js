@@ -3,15 +3,15 @@ const router = require('express').Router();
 
 // require controllers
 const PageController = require(path.join(
-  __dirname,
+  process.cwd(),
   'app/controllers/page_controller'
 ));
 const UserController = require(path.join(
-  __dirname,
+  process.cwd(),
   'app/controllers/api/v1/user_controller'
 ));
 const RecyclingStationController = require(path.join(
-  __dirname,
+  process.cwd(),
   'app/controllers/recycling_station_controller'
 ));
 
