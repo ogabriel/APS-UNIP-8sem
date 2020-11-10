@@ -12,7 +12,7 @@ const UserController = require(path.join(
 ));
 const RecyclingStationController = require(path.join(
   process.cwd(),
-  'app/controllers/recycling_station_controller'
+  'app/controllers/api/v1/recycling_station_controller'
 ));
 
 // add use controllers
