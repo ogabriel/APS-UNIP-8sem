@@ -31,6 +31,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Config static files
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Config api routes
 const routes = require(path.join(process.cwd(), 'config/routes'));
 
