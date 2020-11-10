@@ -20,7 +20,7 @@ router.get('/mapa.html', authRedirect, (req, res) => {
 });
 
 router.get('/criar_estacao.html', authRedirect, (req, res) => {
-  res.sendFile(path.join(process.cwd(), 'private/mapa.html'));
+  res.sendFile(path.join(process.cwd(), 'private/criar_estacao.html'));
 });
 
 module.exports = router;
