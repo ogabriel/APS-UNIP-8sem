@@ -19,4 +19,8 @@ router.get('/mapa.html', authRedirect, (req, res) => {
   res.sendFile(path.join(process.cwd(), 'private/mapa.html'));
 });
 
+router.get('/estacao_de_reciclagem.html', authRedirect, (req, res) => {
+  res.sendFile(path.join(process.cwd(), 'private/estacao_de_reciclagem.html'));
+});
+
 module.exports = router;

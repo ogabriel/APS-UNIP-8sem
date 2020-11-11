@@ -1,4 +1,5 @@
-const stationId = window['id'] || 1; // teste
+var urlParams = new URLSearchParams(window.location.search);
+const stationId = urlParams.get("id") || undefined;
 const boxesIds = ['#plastic', '#metal', '#glass', '#paper', '#electronic'];
 
 async function putMaterialQuantity({ id, bodyRequest, endpoint }) {
