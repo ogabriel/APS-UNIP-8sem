@@ -57,7 +57,10 @@ router.get('/:id', function (req, res) {
 });
 
 router.post('/', (req, res) => {
-  RecyclingStation.create(req.body)
+  const payload = req.body;
+  payload.UserId = req.user.id;
+
+  RecyclingStation.create(payload)
     .then((data) => {
       res.json(data);
     })
