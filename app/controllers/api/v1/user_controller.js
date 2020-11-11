@@ -5,6 +5,14 @@ const router = require('express').Router();
 const { User } = require(path.join(process.cwd(), 'app/models'));
 const passport = require(path.join(process.cwd(), 'config/passport'));
 
+router.get('/me', (req, res) => {
+  console.log(req.body);
+  if (req.user.id) {
+    return res.json(req.user.id);
+  }
+  res.status(404).send({ errors: [{ message: 'Missing station' }] });
+});
+
 router.get('/:id', function (req, res) {
   User.findByPk(req.params.id).then((data) => {
     if (data) {
@@ -42,13 +50,6 @@ router.post(
 router.delete('/logout', (req, res) => {
   req.logout();
   res.redirect('/login.html');
-});
-
-router.get('/me', (req, res) => {
-  if (req.user.id) {
-    return res.send(req.user.id);
-  }
-  res.status(404).send({ errors: [{ message: 'Missing station' }] });
 });
 
 module.exports = router;
