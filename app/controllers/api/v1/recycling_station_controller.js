@@ -61,17 +61,14 @@ router.post('/', (req, res) => {
   payload.UserId = req.user.id.toString();
   payload.localization = { type: 'Point', coordinates: payload.coordinates };
 
-  console.log(payload);
-
   RecyclingStation.create(payload)
     .then((data) => {
       res.json(data);
     })
     .catch((data) => {
-      console.log(data);
       res.status(400).send({ errors: data.errors.map((e) => e.message) });
     });
-    res.redirect('/mapa.html');
+  res.redirect('/mapa.html');
 });
 
 router.put('/:id/add_electronic', (req, res) => {
