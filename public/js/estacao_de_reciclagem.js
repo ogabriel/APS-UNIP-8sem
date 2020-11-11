@@ -1,8 +1,7 @@
 const stationId = window['id'] || 1; // teste
 const boxesIds = ['#plastic', '#metal', '#glass', '#paper', '#electronic'];
 
-async function putMaterialQuantity(data) {
-  const { id, bodyRequest, endpoint } = data;
+async function putMaterialQuantity({ id, bodyRequest, endpoint }) {
   const response = await fetch(`/api/v1/recycling_stations/${id}/${endpoint}`, {
     method: 'PUT',
     mode: 'cors',
