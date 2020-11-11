@@ -145,7 +145,9 @@ describe('POST /users/login and DELETE /users/logout', () => {
 
       expect(response.statusCode).toBe(302);
       expect(response.redirect).toBe(true);
-      expect(response.headers.location).toBe('/login.html');
+      expect(response.headers.location).toBe(
+        '/login.html?error=Senha%20ou%20e-mail%20incorreto'
+      );
     });
   });
 
