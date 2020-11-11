@@ -37,11 +37,26 @@
       <div class="form-group">
         <label for="inputCoordinates">Localização da estação</label>
         <input
-          type="text"
+          type="number"
           id="inputCoordinates"
           class="form-control"
-          placeholder="Coordenadas, Ex: -25.0511, 35.9348"
-          name="localization"
+          placeholder="Latitude, Ex: -25.0511"
+          name="coordinates"
+          step="0.00000001"
+          min="-85.05112878"
+          max="85.05112878"
+          required
+          autofocus
+        />
+        <input
+          type="number"
+          id="inputCoordinates"
+          class="form-control"
+          placeholder="Longitude, Ex: 35.9348"
+          name="coordinates"
+          step="0.00000001"
+          min="-180"
+          max="180"
           required
           autofocus
         />
@@ -110,6 +125,5 @@
       </button>
     </form>
 
-    <script src="./js/station.js" charset="utf-8"></script>
   </body>
 </html>

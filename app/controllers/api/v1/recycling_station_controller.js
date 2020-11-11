@@ -58,13 +58,17 @@ router.get('/:id', function (req, res) {
 
 router.post('/', (req, res) => {
   const payload = req.body;
-  payload.UserId = req.user.id;
+  payload.UserId = req.user.id.toString();
+  payload.localization = {type: 'Point', coordinates: payload.coordinates};
+
+  console.log(payload)
 
   RecyclingStation.create(payload)
     .then((data) => {
       res.json(data);
     })
     .catch((data) => {
+      console.log(data);
       res.status(400).send({ errors: data.errors.map((e) => e.message) });
     });
 });
