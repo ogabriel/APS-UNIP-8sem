@@ -71,6 +71,7 @@ router.post('/', (req, res) => {
       console.log(data);
       res.status(400).send({ errors: data.errors.map((e) => e.message) });
     });
+    res.redirect('/mapa.html');
 });
 
 router.put('/:id/add_electronic', (req, res) => {
