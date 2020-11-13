@@ -35,7 +35,7 @@ router.post(
   '/login',
   passport.authenticate('local', {
     successRedirect: '/mapa.html',
-    failureRedirect: '/login.html',
+    failureRedirect: '/login.html?error=Senha ou e-mail incorreto',
   })
 );
 
