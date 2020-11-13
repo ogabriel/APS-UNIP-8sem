@@ -60,9 +60,10 @@ router.post('/', (req, res) => {
   const payload = req.body;
   if (req.user.id !== null && req.user.id !== '') {
     payload.UserId = req.user.id.toString();
-    payload.localization = { type: 'Point', coordinates: payload.coordinates };
-    delete payload.coordinates;
   }
+
+  payload.localization = { type: 'Point', coordinates: payload.coordinates };
+  delete payload.coordinates;
 
   RecyclingStation.create(payload)
     .then((data) => {
