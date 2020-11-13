@@ -112,7 +112,7 @@ describe('POST /recycling_stations', () => {
       const user = await createUser();
       const recycling_station_data = {
         name: 'RecyclePlus',
-          coordinates: ['42.7554', '58.4350'],
+        coordinates: ['42.7554', '58.4350'],
         UserId: user.id,
       };
 
@@ -130,7 +130,7 @@ describe('POST /recycling_stations', () => {
     test('return an empty object when user is missing', async () => {
       const recycling_station_data = {
         name: 'RecyclePlus',
-          coordinates: ['42.7554', '58.4350'],
+        coordinates: ['42.7554', '58.4350'],
         electronic: 1,
       };
 
@@ -151,7 +151,7 @@ describe('POST /recycling_stations', () => {
       const user = await createUser();
       const recycling_station_data = {
         name: 'RecyclePlus',
-          coordinates: ['42.7554', '58.4350'],
+        coordinates: ['42.7554', '58.4350'],
         electronic: 1,
         UserId: user.id,
       };
