@@ -40,7 +40,7 @@ boxesIds.forEach((boxId) => {
           getStationData(stationId).then((station) => {
             document.querySelector(
               `${boxId} p.lead`
-            ).textContent = `Total: ${station[material]}`;
+            ).textContent = `Total: ${station[material]}g`;
           });
         })
         .catch(console.error);
