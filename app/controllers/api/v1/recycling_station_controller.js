@@ -58,7 +58,9 @@ router.get('/:id', function (req, res) {
 
 router.post('/', (req, res) => {
   const payload = req.body;
-  payload.UserId = req.user.id.toString();
+  if (req.user.id !== null && req.user.id !== '') {
+    payload.UserId = req.user.id.toString();
+  }
   payload.localization = { type: 'Point', coordinates: payload.coordinates };
   delete payload.coordinates;
 

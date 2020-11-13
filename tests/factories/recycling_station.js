@@ -7,7 +7,10 @@ const numberOptions = { min: 1, max: 1000000 };
 
 const defaultOptions = {
   name: faker.name.findName(),
-  coordinates: [faker.address.latitude(), faker.address.longitude()],
+  localization: {
+    type: 'Point',
+    coordinates: [faker.address.latitude(), faker.address.longitude()],
+  },
   plastic: faker.random.number(numberOptions),
   metal: faker.random.number(numberOptions),
   glass: faker.random.number(numberOptions),
