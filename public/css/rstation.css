@@ -6,7 +6,7 @@ div.custom {
   margin: 0 auto;
 }
 
-div.card-image-overlay>img {
+div.card-image-overlay > img {
   padding-bottom: 0.29rem;
 }
 .custom.container {
