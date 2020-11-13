@@ -21,7 +21,10 @@ router.get('/localizations', function (req, res) {
           popupContent: `
           ${station.name}
           <br>
-          <a class="btn btn-md btn-primary btn-block" href="/estacao_de_reciclagem.html?id=${station.id}">Ir para</a>
+          <form action="/estacao_de_reciclagem.html" method="get">
+            <input name="id" class="invisible" value="${station.id}">
+            <button class="btn btn-md btn-primary btn-block">Ir para</button>
+          </form>
           `,
         },
         geometry: station.localization,
