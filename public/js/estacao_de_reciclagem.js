@@ -56,7 +56,7 @@ if (stationId) {
       var material = boxId.replace('#', '');
       document.querySelector(
         `${boxId} p.lead`
-      ).textContent = `Total: ${station[material]}`;
+      ).textContent = `Total: ${station[material]}g`;
     });
   });
 }
