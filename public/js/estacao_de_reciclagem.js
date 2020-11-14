@@ -34,14 +34,15 @@ boxesIds.forEach((boxId) => {
         id: stationId,
         bodyRequest: { g: value },
         endpoint: `add_${material}`,
-      })
-        .then((response) => {
+      }).then((response) => {
+        if (response) {
           getStationData(stationId).then((station) => {
             document.querySelector(
               `${boxId} p.lead`
             ).textContent = `Total: ${station[material]}g`;
           });
-        })
+        }
+      });
     }
   };
 });
@@ -49,7 +50,6 @@ boxesIds.forEach((boxId) => {
 if (stationId) {
   getStationData(stationId).then((station) => {
     document.querySelector('h1.display-4').textContent = station.name;
-    document.querySelector('p#desc').textContent = ``;
     boxesIds.forEach((boxId) => {
       var material = boxId.replace('#', '');
       document.querySelector(

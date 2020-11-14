@@ -14,37 +14,32 @@
       <h1 class="display-4"></h1>
       <p id="desc" class="lead"></p>
     </div>
-
     <div class="custom container">
       <div class="card-deck mb-3 text-center" style="right: center;">
         <div id="plastic" class="card mb-4 box-shadow">
           <div class="card-header">
-            <h4 id="plastic" class="my-0 font-weight-normal">Plástico</h4>
+            <h4 class="my-0 font-weight-normal">Plástico</h4>
           </div>
-          <div class="img-fluid">
+          <div class="card-body">
             <div class="card-image-overlay">
-              <img
-                class="img-fluid"
-                src="assets/plastic-bottle.png"
-                height="140"
-              />
+              <img class="img-fluid" src="assets/plastic-bottle.png" />
               <!--Icons made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
             </div>
             <div class="card-title">
               <p class="lead">Total:</p>
+              <p>
+                <input
+                  pattern="\d+"
+                  id="inputQuantity"
+                  class="form-control"
+                  placeholder="Quantidade"
+                  name="quantity"
+                />
+              </p>
+              <button type="button" class="btn btn-lg btn-block btn-primary">
+                Depositar
+              </button>
             </div>
-            <p>
-              <input
-                pattern="\d+"
-                id="inputQuantity"
-                class="form-control"
-                placeholder="Quantidade"
-                name="quantity"
-              />
-            </p>
-            <button type="button" class="btn btn-lg btn-block btn-primary">
-              Depositar
-            </button>
           </div>
         </div>
         <div id="metal" class="card mb-4 box-shadow">
@@ -53,12 +48,7 @@
           </div>
           <div class="card-body">
             <div class="card-image-overlay">
-              <img
-                class="img-fluid"
-                src="assets/tomato-sauce.png"
-                height="130"
-                style="margin-bottom: 10px;"
-              />
+              <img class="img-fluid" src="assets/tomato-sauce.png" />
               <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
             </div>
             <div class="card-title">
@@ -84,11 +74,7 @@
           </div>
           <div class="card-body">
             <div class="card-image-overlay">
-              <img
-                class="img-fluid"
-                src="assets/glass-bottle.png"
-                height="140"
-              />
+              <img class="img-fluid" src="assets/glass-bottle.png" />
               <!--Icons made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
             </div>
             <div class="card-title">
@@ -114,7 +100,7 @@
           </div>
           <div class="card-body">
             <div class="card-image-overlay">
-              <img class="img-fluid" src="assets/paper.png" height="140" />
+              <img class="img-fluid" src="assets/paper.png" />
               <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
             </div>
             <div class="card-title">
@@ -140,7 +126,7 @@
           </div>
           <div class="card-body">
             <div class="card-image-overlay">
-              <img class="img-fluid" src="assets/power-bank.png" height="140" />
+              <img class="img-fluid" src="assets/power-bank.png" />
               <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
             </div>
             <div class="card-title">
