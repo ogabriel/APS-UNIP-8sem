@@ -36,14 +36,12 @@ boxesIds.forEach((boxId) => {
         endpoint: `add_${material}`,
       })
         .then((response) => {
-          console.log(response);
           getStationData(stationId).then((station) => {
             document.querySelector(
               `${boxId} p.lead`
             ).textContent = `Total: ${station[material]}g`;
           });
         })
-        .catch(console.error);
     }
   };
 });
