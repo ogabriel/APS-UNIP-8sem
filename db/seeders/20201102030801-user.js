@@ -21,13 +21,50 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        name: 'Breno',
+        email: 'breno@unip.com',
+        // password
+        password:
+          '$2b$10$v0iYG9szdm3FHSi4bjrkPOiwcEu5Tgs7SviIXeqwlY/oW.r/we21q',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Gabriel',
+        email: 'gabriel@unip.com',
+        // password
+        password:
+          '$2b$10$WghTtAwm9Oe/mmEIFamlaef3Spc3EqyHH6JytGWiwqbgQ2f8rVCEW',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Jessica',
+        email: 'jessica@unip.com',
+        // password
+        password:
+          '$2b$10$qLEv9aQtdRvYR.aihin9euEQFAiGfp5QrL27w2c3kxrQaPfiODAhS',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ]);
   },
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete(
       'Users',
-      [{ email: ['john@doe.com', 'jane@doe.com'] }],
+      [
+        {
+          email: [
+            'john@doe.com',
+            'jane@doe.com',
+            'breno@unip.com',
+            'gabriel@unip.com',
+            'jessica@unip.com',
+          ],
+        },
+      ],
       {}
     );
   },
