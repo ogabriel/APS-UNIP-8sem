@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Criar Estações de Reciclagem</title>
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./css/form.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <form
+      class="form-create"
+      id="station-form"
+      action="/api/v1/recycling_stations"
+      autocomplete="off"
+      method="POST"
+    >
+      <h1 class="h3 mb-3 font-weight-normal">
+        Crie uma nova estação de reciclagem
+      </h1>
+
+      <div class="form-group">
+        <label for="inputName">Nome da estação</label>
+        <input
+          type="name"
+          id="inputName"
+          class="form-control"
+          placeholder="Insira o nome da estação"
+          name="name"
+          required
+          autofocus
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="inputCoordinates">Localização da estação</label>
+        <input
+          type="number"
+          id="inputCoordinates"
+          class="form-control"
+          placeholder="Latitude, Ex: -25.0511"
+          name="coordinates"
+          step="0.00000001"
+          min="-85.05112878"
+          max="85.05112878"
+          required
+          autofocus
+        />
+        <input
+          type="number"
+          id="inputCoordinates"
+          class="form-control"
+          placeholder="Longitude, Ex: 35.9348"
+          name="coordinates"
+          step="0.00000001"
+          min="-180"
+          max="180"
+          required
+          autofocus
+        />
+      </div>
+
+      <div class="form-group materials">
+        <div class="col-sm-7">Materiais aceitos:</div>
+        <div class="col-sm-1">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="gridCheck1"
+              name="plastic"
+              value="0"
+            />
+            <label class="form-check-label" for="gridCheck1">
+              Plástico
+            </label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="gridCheck2"
+              name="metal"
+              value="0"
+            />
+            <label class="form-check-label" for="gridCheck2">
+              Metal
+            </label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="gridCheck3"
+              name="glass"
+              value="0"
+            />
+            <label class="form-check-label" for="gridCheck3">
+              Vidro
+            </label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="gridCheck4"
+              name="paper"
+              value="0"
+            />
+            <label class="form-check-label" for="gridCheck4">
+              Papel
+            </label>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="gridCheck5"
+              name="electronic"
+              value="0"
+            />
+            <label class="form-check-label" for="gridCheck5">
+              Eletrônicos
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-lg btn-primary btn-block">
+        Confirmar
+      </button>
+    </form>
+  </body>
+</html>
