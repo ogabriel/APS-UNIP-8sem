@@ -39,7 +39,7 @@ module.exports = {
         name: 'Reciclagem Só plastico',
         localization: Sequelize.fn(
           'ST_GeomFromText',
-          'POINT(-46.633811 -23.554504)'
+          'POINT(-46.634811 -23.556504)'
         ),
         plastic: 1080,
         UserId: users[1].id,
@@ -50,7 +50,7 @@ module.exports = {
         name: 'Sucata de eletrônicos',
         localization: Sequelize.fn(
           'ST_GeomFromText',
-          'POINT(-46.635512 -23.554310)'
+          'POINT(-46.635512 -23.557310)'
         ),
         paper: 1420,
         electronic: 130,
@@ -62,7 +62,7 @@ module.exports = {
         name: 'Recicla Papel',
         localization: Sequelize.fn(
           'ST_GeomFromText',
-          'POINT(-46.635303 -23.554904)'
+          'POINT(-46.635303 -23.558904)'
         ),
         paper: 1420,
         UserId: users[1].id,
@@ -73,7 +73,7 @@ module.exports = {
         name: 'Posto de reciclagem de vidro',
         localization: Sequelize.fn(
           'ST_GeomFromText',
-          'POINT(-46.634909 -23.555705)'
+          'POINT(-46.637909 -23.555705)'
         ),
         glass: 700,
         UserId: users[1].id,
@@ -84,7 +84,7 @@ module.exports = {
         name: 'UNIP Paraiso - reciclagem',
         localization: Sequelize.fn(
           'ST_GeomFromText',
-          'POINT(-46.6397724 -23.573701)'
+          'POINT(-46.6347724 -23.573701)'
         ),
         plastic: 1000,
         metal: 1000,
