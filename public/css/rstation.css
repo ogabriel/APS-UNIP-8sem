@@ -1,0 +1,15 @@
+body {
+  background-color: #f5f5f5;
+}
+
+div.custom {
+  margin: 0 auto;
+}
+
+div.card-image-overlay > img {
+  padding-bottom: 0.29rem;
+}
+.custom.container {
+  position: relative;
+  top: 6rem;
+}
