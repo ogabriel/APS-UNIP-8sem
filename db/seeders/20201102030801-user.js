@@ -52,20 +52,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete(
-      'Users',
-      [
-        {
-          email: [
-            'john@doe.com',
-            'jane@doe.com',
-            'breno@unip.com',
-            'gabriel@unip.com',
-            'jessica@unip.com',
-          ],
-        },
-      ],
-      {}
-    );
+    return queryInterface.bulkDelete('Users', [{}], {});
   },
 };
