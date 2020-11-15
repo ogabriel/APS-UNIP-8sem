@@ -61,8 +61,8 @@ router.get('/:id', function (req, res) {
 router.post('/', (req, res) => {
   const payload = req.body;
 
-  if (req && req.user && req.user.id && req.user.id !== '') {
-    payload.UserId = req.user.id.toString();
+  if (req.user && req.user.id && req.user.id !== '') {
+    payload.UserId = req.user.id;
   }
 
   if (payload.coordinates) {
