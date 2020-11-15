@@ -23,4 +23,8 @@ router.get('/criar_estacao.html', authRedirect, (req, res) => {
   res.sendFile(path.join(process.cwd(), 'private/criar_estacao.html'));
 });
 
+router.get('/estacao_de_reciclagem.html', authRedirect, (req, res) => {
+  res.sendFile(path.join(process.cwd(), 'private/estacao_de_reciclagem.html'));
+});
+
 module.exports = router;
