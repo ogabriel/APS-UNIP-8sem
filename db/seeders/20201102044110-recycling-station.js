@@ -10,10 +10,10 @@ module.exports = {
 
     return queryInterface.bulkInsert('RecyclingStations', [
       {
-        name: 'UNIP reciclagem',
+        name: 'Reciclagem R5',
         localization: Sequelize.fn(
           'ST_GeomFromText',
-          'POINT(-46.635906 -23.554604)'
+          'POINT(-46.631906 -23.554604)'
         ),
         plastic: 200,
         metal: 350,
@@ -73,7 +73,7 @@ module.exports = {
         name: 'Posto de reciclagem de vidro',
         localization: Sequelize.fn(
           'ST_GeomFromText',
-          'POINT(-46.635909 -23.554705)'
+          'POINT(-46.634909 -23.555705)'
         ),
         glass: 700,
         UserId: users[1].id,
@@ -84,7 +84,7 @@ module.exports = {
         name: 'UNIP Paraiso - reciclagem',
         localization: Sequelize.fn(
           'ST_GeomFromText',
-          'POINT(-46.6396724 -23.572701)'
+          'POINT(-46.6397724 -23.573701)'
         ),
         plastic: 1000,
         metal: 1000,
@@ -95,15 +95,10 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
-
     ]);
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete(
-      'RecyclingStations',
-      [{}],
-      {}
-    );
+    return queryInterface.bulkDelete('RecyclingStations', [{}], {});
   },
 };
