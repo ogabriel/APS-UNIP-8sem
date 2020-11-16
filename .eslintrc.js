@@ -44,6 +44,7 @@ module.exports = {
       files: ['public/js/*.js'],
       rules: {
         'no-undef': 'off',
+        'node/no-unsupported-features/es-builtins': 'off',
       },
     },
   ],
