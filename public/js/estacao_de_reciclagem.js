@@ -52,9 +52,13 @@ if (stationId) {
     document.querySelector('h1.display-4').textContent = station.name;
     boxesIds.forEach((boxId) => {
       var material = boxId.replace('#', '');
-      document.querySelector(
-        `${boxId} p.lead`
-      ).textContent = `Total: ${station[material]}g`;
+      if (station[material] != null) {
+        document.querySelector(
+          `${boxId} p.lead`
+        ).textContent = `Total: ${station[material]}g`;
+      } else {
+        document.querySelector(`div${boxId}`).setAttribute('class', 'd-none');
+      }
     });
   });
 }
