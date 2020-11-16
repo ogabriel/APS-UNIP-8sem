@@ -10,13 +10,7 @@
   </head>
 
   <body>
-    <form
-      class="form-create"
-      id="station-form"
-      action="/api/v1/recycling_stations"
-      autocomplete="off"
-      method="POST"
-    >
+    <form class="form-create" id="station-form">
       <h1 class="h3 mb-3 font-weight-normal">
         Crie uma nova estação de reciclagem
       </h1>
@@ -41,7 +35,7 @@
           id="inputCoordinates"
           class="form-control"
           placeholder="Latitude, Ex: -25.0511"
-          name="coordinates"
+          name="latitude"
           step="0.00000001"
           min="-85.05112878"
           max="85.05112878"
@@ -53,7 +47,7 @@
           id="inputCoordinates"
           class="form-control"
           placeholder="Longitude, Ex: 35.9348"
-          name="coordinates"
+          name="longitude"
           step="0.00000001"
           min="-180"
           max="180"
@@ -124,5 +118,7 @@
         Confirmar
       </button>
     </form>
+
+    <script src="./js/create_station.js" charset="utf-8"></script>
   </body>
 </html>
