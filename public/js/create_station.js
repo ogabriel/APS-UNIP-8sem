@@ -27,7 +27,7 @@ document
           window.location.href = `/estacao_de_reciclagem.html?id=${data.id}`;
         });
       } else {
-        window.alert('E-mail duplicado, erro ao adicionar no banco de dados');
+        window.alert('Informações inválidas');
       }
     });
   });
