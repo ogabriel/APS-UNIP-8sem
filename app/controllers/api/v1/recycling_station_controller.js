@@ -59,15 +59,10 @@ router.get('/:id', function (req, res) {
 });
 
 router.post('/', (req, res) => {
-  const payload = req.body;
+  var payload = req.body;
 
   if (req.user && req.user.id && req.user.id !== '') {
     payload.UserId = req.user.id;
-  }
-
-  if (payload.coordinates) {
-    payload.localization = { type: 'Point', coordinates: payload.coordinates };
-    delete payload.coordinates;
   }
 
   RecyclingStation.create(payload)
