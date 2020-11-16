@@ -73,7 +73,10 @@ describe('POST /recycling_stations', () => {
     test('return an empty object when name is missing', async () => {
       const user = await createUser();
       const recycling_station_data = {
-        coordinates: ['42.7554', '58.4350'],
+        localization: {
+          type: 'Point',
+          coordinates: ['42.7554', '58.4350'],
+        },
         electronic: 1,
         UserId: user.id,
       };
@@ -112,7 +115,10 @@ describe('POST /recycling_stations', () => {
       const user = await createUser();
       const recycling_station_data = {
         name: 'RecyclePlus',
-        coordinates: ['42.7554', '58.4350'],
+        localization: {
+          type: 'Point',
+          coordinates: ['42.7554', '58.4350'],
+        },
         UserId: user.id,
       };
 
@@ -130,10 +136,12 @@ describe('POST /recycling_stations', () => {
     test('return an empty object when user is missing', async () => {
       const recycling_station_data = {
         name: 'RecyclePlus',
-        coordinates: ['42.7554', '58.4350'],
+        localization: {
+          type: 'Point',
+          coordinates: ['42.7554', '58.4350'],
+        },
         electronic: 1,
       };
-
       const response = await request(app)
         .post('/api/v1/recycling_stations')
         .send(recycling_station_data)
@@ -151,11 +159,13 @@ describe('POST /recycling_stations', () => {
       const user = await createUser();
       const recycling_station_data = {
         name: 'RecyclePlus',
-        coordinates: ['42.7554', '58.4350'],
+        localization: {
+          type: 'Point',
+          coordinates: ['42.7554', '58.4350'],
+        },
         electronic: 1,
         UserId: user.id,
       };
-
       const response = await request(app)
         .post('/api/v1/recycling_stations')
         .send(recycling_station_data)
